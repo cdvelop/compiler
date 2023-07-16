@@ -1,0 +1,1 @@
+console.log('función componente search modulo: {{.ModuleName}}');
