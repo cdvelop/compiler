@@ -19,6 +19,9 @@ type Compiler struct {
 	//componentes registrados
 	components map[string]*component
 
+	wasm_file_name string
+	js_wasm_import string
+
 	WORK_FOLDER   string
 	BUILT_FOLDER  string
 	STATIC_FOLDER string

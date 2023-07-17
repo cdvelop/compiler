@@ -12,7 +12,7 @@ import (
 )
 
 // options ej:
-// wasm_compiler:tinygo default:go
+// wasm:tinygo default:go
 // menu:<code html here> default ""
 // modules:<code html here> default ""
 // icons:<code html svg sprite icon here> default ""
@@ -23,11 +23,9 @@ import (
 func Config(options ...string) *Compiler {
 
 	c := Compiler{
-		Page:        model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
-		wasm_build:  false,
-		with_tinyGo: false,
-		modules:     []*module{},
-		components:  map[string]*component{},
+		Page:       model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
+		modules:    []*module{},
+		components: map[string]*component{},
 	}
 
 	usr, err := user.Current()
@@ -49,7 +47,7 @@ func Config(options ...string) *Compiler {
 
 		switch {
 
-		case strings.Contains(option, "wasm_compiler:tinygo"):
+		case strings.Contains(option, "wasm:tinygo"):
 			c.with_tinyGo = true
 
 		case strings.Contains(option, "project_dir:"):
@@ -76,6 +74,10 @@ func Config(options ...string) *Compiler {
 		}
 	}
 
+	c.wasm_file_name = "wasm_main.go"
+
+	c.js_wasm_import = `const go = new Go();WebAssembly.instantiateStreaming(fetch("static/app.wasm"), go.importObject).then((result) => {go.run(result.instance);});`
+
 	c.WORK_FOLDER = filepath.Join(c.project_dir, "frontend")
 	c.BUILT_FOLDER = filepath.Join(c.project_dir, "frontend/built")
 	c.STATIC_FOLDER = filepath.Join(c.project_dir, "frontend/built/static")
@@ -88,7 +90,7 @@ func Config(options ...string) *Compiler {
 	return &c
 }
 
-func (c *Compiler) CompilerWork() {
+func (c *Compiler) CompileAllProject() {
 
 	c.registrationFromCurrentDirectory()
 

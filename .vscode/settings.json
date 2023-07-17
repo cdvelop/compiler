@@ -1,11 +1,15 @@
 {
     "cSpell.words": [
         "apptest",
+        "enosys",
+        "fchmod",
+        "ftruncate",
         "funtions",
         "mincss",
         "minh",
         "minjs",
         "mymodule",
+        "Ptrs",
         "tdewolff"
     ]
 }

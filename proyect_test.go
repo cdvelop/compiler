@@ -13,7 +13,7 @@ import (
 	"github.com/cdvelop/gotools"
 )
 
-func Test_BuildingUI(t *testing.T) {
+func Test_CompileProject(t *testing.T) {
 	dir, _ := os.Getwd()
 	test_dir := filepath.Join(dir, "test")
 
@@ -26,7 +26,7 @@ func Test_BuildingUI(t *testing.T) {
 	gotools.DeleteFilesByExtension(c.BUILT_FOLDER, []string{".html"})
 	gotools.DeleteFilesByExtension(c.STATIC_FOLDER, []string{".js", ".css", ".wasm"})
 
-	c.CompilerWork()
+	c.CompileAllProject()
 
 	err := gotools.FindFilesWithNonZeroSize(c.BUILT_FOLDER, []string{"index.html", "style.css", "main.js", "app.wasm"})
 	if err != nil {

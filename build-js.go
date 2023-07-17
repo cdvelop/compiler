@@ -32,9 +32,14 @@ func (c *Compiler) BuildJS() {
 
 	}
 
-	c.addWasmJS(&public_js)
-
-	// **** código js módulos desde aca
+	if c.wasm_build {
+		if c.with_tinyGo {
+			public_js.WriteString(addWasmJsTinyGo())
+		} else {
+			public_js.WriteString(addWasmJsGo())
+		}
+		public_js.WriteString(c.js_wasm_import)
+	}
 
 	// fmt.Println(`3- construir módulos js`)
 	for _, m := range c.modules {
