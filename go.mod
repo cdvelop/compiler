@@ -14,7 +14,7 @@ require (
 
 require (
 	github.com/cdvelop/gomod v0.0.6
-	github.com/cdvelop/gotools v0.0.16
+	github.com/cdvelop/gotools v0.0.17
 	github.com/cdvelop/input v0.0.13
 	github.com/cdvelop/js v0.0.0-20230710200247-0d9f5c8314da
 	github.com/cdvelop/platform v0.0.2
