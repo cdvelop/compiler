@@ -2,23 +2,18 @@ package compiler
 
 import (
 	"fmt"
-
-	"github.com/cdvelop/gotools"
 )
 
-func (c Compiler) compilerCheck() {
+func (c Compiler) rebuildAll() {
+
+	fmt.Println("... recompilando proyecto archivos: html,css,js,wasm ...")
 
 	c.BuildHTML()
 
-	err := gotools.FindFilesWithNonZeroSize(c.BUILT_FOLDER, []string{"style.css", "main.js"})
-	if err != nil {
-		fmt.Println(err, "... recompilando proyecto archivos: html,css,js,wasm ...")
+	c.BuildJS()
 
-		c.BuildJS()
+	c.BuildCSS()
 
-		c.BuildCSS()
+	c.BuildWASM()
 
-		c.BuildWASM()
-
-	}
 }

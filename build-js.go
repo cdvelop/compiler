@@ -2,7 +2,8 @@ package compiler
 
 import (
 	"bytes"
-	"log"
+	"fmt"
+	"path/filepath"
 	"time"
 
 	"github.com/cdvelop/gotools"
@@ -10,7 +11,7 @@ import (
 	minjs "github.com/tdewolff/minify/js"
 )
 
-func (c *Compiler) BuildJS() {
+func (c *Compiler) BuildJS() error {
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
 	public_js := bytes.Buffer{}
@@ -19,7 +20,7 @@ func (c *Compiler) BuildJS() {
 	public_js.WriteString("'use strict';\n")
 
 	// fmt.Println(`1- comenzamos con el js del tema`)
-	gotools.ReadFiles(c.theme_dir+"/js", ".js", &public_js)
+	gotools.ReadFiles(filepath.Join(c.theme_dir, "js"), ".js", &public_js)
 
 	// fmt.Println(`2- leer js publico de los componentes`)
 
@@ -27,18 +28,9 @@ func (c *Compiler) BuildJS() {
 
 		if comp.folder_path != "" {
 
-			gotools.ReadFiles(comp.folder_path+"/js_global", ".js", &public_js)
+			gotools.ReadFiles(filepath.Join(comp.folder_path, "js_global"), ".js", &public_js)
 		}
 
-	}
-
-	if c.wasm_build {
-		if c.with_tinyGo {
-			public_js.WriteString(addWasmJsTinyGo())
-		} else {
-			public_js.WriteString(addWasmJsGo())
-		}
-		public_js.WriteString(c.js_wasm_import)
 	}
 
 	// fmt.Println(`3- construir módulos js`)
@@ -58,20 +50,36 @@ func (c *Compiler) BuildJS() {
 
 		c.attachInputsContentFromModule(m, ".js", &public_js)
 
-		gotools.ReadFiles(m.folder_path+"/js_module", ".js", &public_js)
+		gotools.ReadFiles(filepath.Join(m.folder_path, "js_module"), ".js", &public_js)
 
 		// fmt.Println(`agregamos js test si existiesen`)
-		gotools.ReadFiles(m.folder_path+"/js_test", ".js", &public_js)
+		gotools.ReadFiles(filepath.Join(m.folder_path, "js_test"), ".js", &public_js)
 
 		// fmt.Println(`4- >>> escribiendo module JS: `, module.MainName)
 		public_js.WriteString(moduleJsTemplate(m.name, funtions.String(), listener_add.String(), listener_rem.String()))
 
 	}
 
-	jsMinify(&public_js)
+	err := jsMinify(&public_js)
+	if err != nil {
+		return err
+	}
 
-	gotools.FileWrite(c.STATIC_FOLDER+"/main.js", &public_js)
+	if c.wasm_build {
+		if c.with_tinyGo {
+			public_js.WriteString(addWasmJsTinyGo())
+		} else {
+			public_js.WriteString(addWasmJsGo())
+		}
+		public_js.WriteString(c.js_wasm_import)
+	}
 
+	err = gotools.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func moduleJsTemplate(module_name, functions, listener_add, listener_rem string) string {
@@ -89,20 +97,19 @@ func moduleJsTemplate(module_name, functions, listener_add, listener_rem string)
 })();`
 }
 
-func jsMinify(data_in *bytes.Buffer) {
+func jsMinify(data_in *bytes.Buffer) error {
 
 	m := minify.New()
 	m.AddFunc("text/javascript", minjs.Minify)
 
 	var temp_result bytes.Buffer
 	err := m.Minify("text/javascript", &temp_result, data_in)
-
 	if err != nil {
-		log.Printf("Minification JS error: %v\n", err)
-		return
+		return fmt.Errorf("minification js error: %v", err)
 	}
 
 	data_in.Reset()
 	*data_in = temp_result
 
+	return nil
 }

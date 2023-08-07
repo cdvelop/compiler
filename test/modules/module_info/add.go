@@ -13,15 +13,15 @@ type module struct {
 func Get() *module {
 	return &module{
 		&model.Module{
-			Theme:  nil,
-			Name:   "module_info",
-			Title:  "Información Plataforma TEST",
-			IconID: "icon-info",
-			Areas:  []byte{'0', 't'},
+			Theme:      nil,
+			ModuleName: "module_info",
+			Title:      "Información Plataforma TEST",
+			IconID:     "icon-info",
+			Areas:      []byte{'0', 't'},
 		},
 	}
 }
 
 func (m module) Icon(test_dir string) string {
-	return filepath.Join(test_dir, "modules", m.Name, m.IconID+".svg")
+	return filepath.Join(test_dir, "modules", m.ModuleName, m.IconID+".svg")
 }

@@ -25,6 +25,8 @@ type Compiler struct {
 	WORK_FOLDER   string
 	BUILT_FOLDER  string
 	STATIC_FOLDER string
+
+	DirectoriesRegistered map[string]struct{}
 }
 
 type module struct {

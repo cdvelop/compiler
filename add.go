@@ -18,14 +18,16 @@ import (
 // icons:<code html svg sprite icon here> default ""
 // project_dir:test default local run app dir
 // modules_dir:c:\go\modules default HomeUserDir/Packages/go
+// compile_dir:cmd default ""
 // components_dir:c:\go\pkg default HomeUserDir/Packages/go
 // theme_dir:c:\pkg\go\store default:HomeUserDir/Packages/go/platform
 func Config(options ...string) *Compiler {
 
 	c := Compiler{
-		Page:       model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
-		modules:    []*module{},
-		components: map[string]*component{},
+		Page:                  model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
+		modules:               []*module{},
+		components:            map[string]*component{},
+		DirectoriesRegistered: map[string]struct{}{},
 	}
 
 	usr, err := user.Current()
@@ -34,14 +36,23 @@ func Config(options ...string) *Compiler {
 	}
 	c.components_dir = filepath.Join(usr.HomeDir, "Packages/go")
 
-	project_dir, err := os.Getwd()
+	current_dir, err := os.Getwd()
 	if err != nil {
 		gotools.ShowErrorAndExit(err.Error())
 	}
-	c.project_dir = project_dir
+
+	root_project_dir := current_dir
+	gotools.RemoveSuffixIfPresent(&root_project_dir, "\\cmd")
+
+	fmt.Println("DIRECTORIO ACTUAL: ", current_dir, " PROJECT ROOT: ", root_project_dir)
+
+	c.DirectoriesRegistered[root_project_dir] = struct{}{}
+	c.project_dir = current_dir
 
 	c.modules_dir = c.components_dir
 	c.theme_dir = filepath.Join(c.components_dir, "platform")
+
+	var compile_dir string
 
 	for _, option := range options {
 
@@ -52,6 +63,9 @@ func Config(options ...string) *Compiler {
 
 		case strings.Contains(option, "project_dir:"):
 			gotools.ExtractTwoPointArgument(option, &c.project_dir)
+
+		case strings.Contains(option, "compile_dir:"):
+			gotools.ExtractTwoPointArgument(option, &compile_dir)
 
 		case strings.Contains(option, "modules_dir:"):
 			gotools.ExtractTwoPointArgument(option, &c.modules_dir)
@@ -76,13 +90,18 @@ func Config(options ...string) *Compiler {
 
 	c.wasm_file_name = "wasm_main.go"
 
-	c.js_wasm_import = `const go = new Go();WebAssembly.instantiateStreaming(fetch("static/app.wasm"), go.importObject).then((result) => {go.run(result.instance);});`
+	c.js_wasm_import = `const go = new Go();
+	WebAssembly.instantiateStreaming(fetch("static/app.wasm"), go.importObject).then((result) => {
+		go.run(result.instance);
+	});`
 
-	c.WORK_FOLDER = filepath.Join(c.project_dir, "frontend")
-	c.BUILT_FOLDER = filepath.Join(c.project_dir, "frontend/built")
-	c.STATIC_FOLDER = filepath.Join(c.project_dir, "frontend/built/static")
+	c.WORK_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend")
+	c.BUILT_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built")
+	c.STATIC_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built", "static")
 
 	fmt.Println("THEME FOLDER: ", c.theme_dir)
+	c.DirectoriesRegistered[c.theme_dir] = struct{}{}
+
 	fmt.Println("PROJECT DIR: ", c.project_dir)
 	fmt.Println("MODULES DIR: ", c.modules_dir)
 	fmt.Println("COMPONENT DIR: ", c.components_dir)
@@ -100,5 +119,5 @@ func (c *Compiler) CompileAllProject() {
 
 	c.webAssemblyCheck()
 
-	c.compilerCheck()
+	c.rebuildAll()
 }

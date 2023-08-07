@@ -12,6 +12,7 @@ func (c *Compiler) registerComponents(components_names []string) {
 				name:        component_name,
 				folder_path: filepath.Join(c.components_dir, component_name),
 			}
+			c.DirectoriesRegistered[new_component.folder_path] = struct{}{}
 
 			c.components[component_name] = &new_component
 		}

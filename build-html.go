@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"path/filepath"
 	"text/template"
 	"time"
 
@@ -13,37 +14,44 @@ import (
 	minh "github.com/tdewolff/minify/html"
 )
 
-func (c *Compiler) BuildHTML() {
+func (c *Compiler) BuildHTML() error {
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
-	template_html := c.makeHtmlTemplate()
+	template_html, err := c.makeHtmlTemplate()
+	if err != nil {
+		return err
+	}
 
-	htmlMinify(&template_html)
+	err = htmlMinify(&template_html)
+	if err != nil {
+		return err
+	}
 	// crear archivo app html
-	gotools.FileWrite(c.BUILT_FOLDER+"/index.html", &template_html)
+	gotools.FileWrite(filepath.Join(c.BUILT_FOLDER, "index.html"), &template_html)
+
+	return nil
 }
 
-func htmlMinify(data_in *bytes.Buffer) {
+func htmlMinify(data_in *bytes.Buffer) error {
 
 	m := minify.New()
 	m.AddFunc("text/html", minh.Minify)
 
 	var temp_result bytes.Buffer
 	err := m.Minify("text/html", &temp_result, data_in)
-
 	if err != nil {
-		log.Printf("Minification HTML error: %v\n", err)
-		return
+		return fmt.Errorf("Minification HTML error: %v\n", err)
 	}
 
 	data_in.Reset()
 	*data_in = temp_result
 
+	return nil
 }
 
-func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer) {
+func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err error) {
 
-	data, err := os.ReadFile(c.theme_dir + "/index.html")
+	data, err := os.ReadFile(filepath.Join(c.theme_dir, "index.html"))
 	if err != nil {
 		fmt.Println("THEME FOLDER: ", c.theme_dir)
 		fmt.Println("Error al leer el archivo:", err)

@@ -2,17 +2,18 @@ package compiler
 
 import (
 	"fmt"
-	"log"
 	"os"
 	"os/exec"
 	"path/filepath"
 )
 
-func (c Compiler) BuildWASM() {
+func (c Compiler) BuildWASM() error {
 	err := c.buildWASM(filepath.Join(c.WORK_FOLDER, c.wasm_file_name), filepath.Join(c.STATIC_FOLDER, "/app.wasm"))
 	if err != nil {
-		log.Println("BuildWASM error: ", err)
+		return fmt.Errorf("BuildWASM error: %v", err)
 	}
+
+	return nil
 }
 
 func (c Compiler) buildWASM(input_go_file string, out_wasm_file string) error {

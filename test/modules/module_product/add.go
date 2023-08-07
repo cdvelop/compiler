@@ -16,12 +16,12 @@ func Get() *module {
 
 	m := module{
 		&model.Module{
-			Theme:  nil,
-			Name:   "module_product",
-			Title:  "Productos TEST",
-			IconID: "icon-products",
-			UI:     module{},
-			Areas:  []byte{'a', 't'},
+			Theme:      nil,
+			ModuleName: "module_product",
+			Title:      "Productos TEST",
+			IconID:     "icon-products",
+			UI:         module{},
+			Areas:      []byte{'a', 't'},
 		},
 	}
 
@@ -45,7 +45,7 @@ func (m module) Object() *model.Object {
 }
 
 func (m module) Icon(test_dir string) string {
-	return filepath.Join(test_dir, "modules", m.Name, m.IconID+".svg")
+	return filepath.Join(test_dir, "modules", m.ModuleName, m.IconID+".svg")
 }
 
 func (module) UserInterface(opt ...string) string {

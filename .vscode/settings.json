@@ -1,4 +1,8 @@
 {
+    // "go.toolsEnvVars": {
+    //     "GOARCH": "wasm",
+    //     "GOOS": "js"
+    // },
     "cSpell.words": [
         "apptest",
         "enosys",

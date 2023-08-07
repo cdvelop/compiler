@@ -8,6 +8,9 @@ import (
 
 func (c *Compiler) webAssemblyCheck() {
 	// chequear si existe wasm_main.go en la ruta de trabajo ej: frontend/wasm_main.go
+
+	fmt.Println("CARPETA DE TRABAJO: ", c.WORK_FOLDER, " ARCHIVO WASM: ", c.wasm_file_name)
+
 	_, err := os.Open(filepath.Join(c.WORK_FOLDER, c.wasm_file_name))
 	if err == nil {
 		var wasm_compiler_name string
