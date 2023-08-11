@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/cdvelop/gomod"
-	"github.com/cdvelop/gotools"
+	. "github.com/cdvelop/output"
 )
 
 func (c *Compiler) registrationFromCurrentDirectory() {
@@ -18,7 +18,7 @@ func (c *Compiler) registrationFromCurrentDirectory() {
 
 		new, err := c.createModule(current_project, c.project_dir)
 		if err != nil {
-			gotools.ShowErrorAndExit(err.Error())
+			ShowErrorAndExit(err.Error())
 		}
 
 		c.addModule(new)
@@ -28,7 +28,7 @@ func (c *Compiler) registrationFromCurrentDirectory() {
 
 		modules_names, components_names, err := gomod.GetSeparateUsedPackageNames(c.project_dir)
 		if err != nil {
-			gotools.ShowErrorAndExit(err.Error())
+			ShowErrorAndExit(err.Error())
 		}
 
 		for _, module_name := range modules_names {
@@ -38,7 +38,7 @@ func (c *Compiler) registrationFromCurrentDirectory() {
 
 			new, err := c.createModule(module_name, module_dir)
 			if err != nil {
-				gotools.ShowErrorAndExit(err.Error())
+				ShowErrorAndExit(err.Error())
 			}
 
 			c.addModule(new)

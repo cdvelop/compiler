@@ -9,6 +9,7 @@ import (
 
 	"github.com/cdvelop/gotools"
 	"github.com/cdvelop/model"
+	. "github.com/cdvelop/output"
 )
 
 // options ej:
@@ -32,13 +33,13 @@ func Config(options ...string) *Compiler {
 
 	usr, err := user.Current()
 	if err != nil {
-		gotools.ShowErrorAndExit(err.Error())
+		ShowErrorAndExit(err.Error())
 	}
 	c.components_dir = filepath.Join(usr.HomeDir, "Packages/go")
 
 	current_dir, err := os.Getwd()
 	if err != nil {
-		gotools.ShowErrorAndExit(err.Error())
+		ShowErrorAndExit(err.Error())
 	}
 
 	root_project_dir := current_dir
@@ -99,12 +100,12 @@ func Config(options ...string) *Compiler {
 	c.BUILT_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built")
 	c.STATIC_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built", "static")
 
-	fmt.Println("THEME FOLDER: ", c.theme_dir)
+	PrintInfo("THEME FOLDER: " + c.theme_dir)
 	c.DirectoriesRegistered[c.theme_dir] = struct{}{}
 
-	fmt.Println("PROJECT DIR: ", c.project_dir)
-	fmt.Println("MODULES DIR: ", c.modules_dir)
-	fmt.Println("COMPONENT DIR: ", c.components_dir)
+	PrintInfo("PROJECT DIR: " + c.project_dir)
+	PrintInfo("MODULES DIR: " + c.modules_dir)
+	PrintInfo("COMPONENT DIR: " + c.components_dir)
 
 	return &c
 }

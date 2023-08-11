@@ -5,6 +5,7 @@ import (
 
 	"github.com/cdvelop/gomod"
 	"github.com/cdvelop/gotools"
+	. "github.com/cdvelop/output"
 )
 
 func (c *Compiler) createModule(name, path string, components_names ...string) (m *module, err error) {
@@ -45,7 +46,7 @@ func (c *Compiler) addModule(new *module) {
 
 		err := gotools.AddStringContendFromDirAndExtension(new.folder_path, ".svg", &c.Page.SpriteIcons)
 		if err != nil {
-			gotools.ShowErrorAndExit(err.Error())
+			ShowErrorAndExit(err.Error())
 		}
 
 	}

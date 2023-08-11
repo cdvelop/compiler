@@ -14,8 +14,9 @@ require (
 
 require (
 	github.com/cdvelop/gomod v0.0.6
-	github.com/cdvelop/gotools v0.0.25
+	github.com/cdvelop/gotools v0.0.26
 	github.com/cdvelop/input v0.0.13
+	github.com/cdvelop/output v0.0.2
 	github.com/cdvelop/platform v0.0.3
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 )
@@ -31,3 +32,5 @@ replace github.com/cdvelop/input => ../input
 replace github.com/cdvelop/gomod => ../gomod
 
 replace github.com/cdvelop/platform => ../platform
+
+replace github.com/cdvelop/output => ../output

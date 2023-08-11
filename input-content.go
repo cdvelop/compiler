@@ -7,17 +7,17 @@ import (
 
 	"github.com/cdvelop/gotools"
 	"github.com/cdvelop/model"
+	. "github.com/cdvelop/output"
 )
 
 // extension: .js, .css
 func (c Compiler) attachInputsContentFromModule(m *module, extension string, out *bytes.Buffer) {
 
 	if m.folder_path != "" && extension != "" {
-
 		// obtenemos los nombres de  los input usados del modulo
 		input_names, err := gotools.GetNamesFromDirectoryExtensionAndPattern(m.folder_path, ".go", model.INPUT_PATTERN)
 		if err != nil {
-			gotools.ShowErrorAndExit(err.Error())
+			ShowErrorAndExit(err.Error())
 		}
 
 		// OBTENER UBICACIÓN POR DEFECTO INPUTS
