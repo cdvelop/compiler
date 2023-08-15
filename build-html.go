@@ -26,6 +26,7 @@ func (c *Compiler) BuildHTML() error {
 	if err != nil {
 		return err
 	}
+
 	// crear archivo app html
 	gotools.FileWrite(filepath.Join(c.BUILT_FOLDER, "index.html"), &template_html)
 
@@ -40,7 +41,7 @@ func htmlMinify(data_in *bytes.Buffer) error {
 	var temp_result bytes.Buffer
 	err := m.Minify("text/html", &temp_result, data_in)
 	if err != nil {
-		return fmt.Errorf("Minification HTML error: %v\n", err)
+		return fmt.Errorf("minification html error: %v", err)
 	}
 
 	data_in.Reset()

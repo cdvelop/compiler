@@ -13,7 +13,7 @@ import (
 )
 
 // options ej:
-// wasm:tinygo default:go
+// tinygo (wasm compiler) default go
 // menu:<code html here> default ""
 // modules:<code html here> default ""
 // icons:<code html svg sprite icon here> default ""
@@ -55,11 +55,21 @@ func Config(options ...string) *Compiler {
 
 	var compile_dir string
 
+	for _, arg := range os.Args {
+		switch {
+		case arg == "tinygo":
+			c.with_tinyGo = true
+
+		case strings.Contains(arg, "theme_dir:"):
+			gotools.ExtractTwoPointArgument(arg, &c.theme_dir)
+		}
+	}
+
 	for _, option := range options {
 
 		switch {
 
-		case strings.Contains(option, "wasm:tinygo"):
+		case option == "tinygo":
 			c.with_tinyGo = true
 
 		case strings.Contains(option, "project_dir:"):

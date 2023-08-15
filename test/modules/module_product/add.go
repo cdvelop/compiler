@@ -16,7 +16,6 @@ func Get() *module {
 
 	m := module{
 		&model.Module{
-			Theme:      nil,
 			ModuleName: "module_product",
 			Title:      "Productos TEST",
 			IconID:     "icon-products",

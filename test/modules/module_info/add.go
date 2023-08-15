@@ -13,7 +13,6 @@ type module struct {
 func Get() *module {
 	return &module{
 		&model.Module{
-			Theme:      nil,
 			ModuleName: "module_info",
 			Title:      "Información Plataforma TEST",
 			IconID:     "icon-info",
