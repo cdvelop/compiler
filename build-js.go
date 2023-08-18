@@ -11,7 +11,11 @@ import (
 	minjs "github.com/tdewolff/minify/js"
 )
 
-func (c *Compiler) BuildJS() error {
+func (c *Compiler) BuildJS(event_name string) error {
+	if event_name != "" {
+		fmt.Println("Compilando JS..." + event_name)
+	}
+
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
 	public_js := bytes.Buffer{}

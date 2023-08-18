@@ -12,7 +12,11 @@ import (
 	mincss "github.com/tdewolff/minify/css"
 )
 
-func (c Compiler) BuildCSS() error {
+func (c Compiler) BuildCSS(event_name string) error {
+	if event_name != "" {
+		fmt.Println("Compilando CSS..." + event_name)
+	}
+
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
 	public_css := bytes.Buffer{}

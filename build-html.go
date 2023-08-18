@@ -14,7 +14,12 @@ import (
 	minh "github.com/tdewolff/minify/html"
 )
 
-func (c *Compiler) BuildHTML() error {
+func (c *Compiler) BuildHTML(event_name string) error {
+	if event_name != "" {
+		fmt.Println("Compilando HTML..." + event_name)
+
+	}
+
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
 	template_html, err := c.makeHtmlTemplate()

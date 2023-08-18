@@ -130,5 +130,12 @@ func (c *Compiler) CompileAllProject() {
 
 	c.webAssemblyCheck()
 
-	c.rebuildAll()
+	err := c.Rebuild()
+	if err != nil {
+		ShowErrorAndExit(err)
+	}
+}
+
+func (c *Compiler) ThemeDir() string {
+	return c.theme_dir
 }
