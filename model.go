@@ -10,6 +10,8 @@ type Compiler struct {
 
 	model.Page
 
+	minify bool
+
 	wasm_build  bool
 	with_tinyGo bool
 

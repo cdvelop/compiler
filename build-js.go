@@ -73,12 +73,14 @@ func (c *Compiler) BuildJS(event_name string) error {
 		public_js.WriteString(c.js_wasm_import)
 	}
 
-	err := jsMinify(&public_js)
-	if err != nil {
-		return err
+	if c.minify {
+		err := jsMinify(&public_js)
+		if err != nil {
+			return err
+		}
 	}
 
-	err = gotools.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
+	err := gotools.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
 	if err != nil {
 		return err
 	}

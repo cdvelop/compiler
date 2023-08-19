@@ -36,8 +36,11 @@ func (c Compiler) BuildCSS(event_name string) error {
 	for _, m := range c.modules {
 		c.attachInputsContentFromModule(m, ".css", &public_css)
 	}
+
 	// fmt.Println("4- >>> escribiendo archivos app.css y style.css")
-	cssMinify(&public_css)
+	if c.minify {
+		cssMinify(&public_css)
+	}
 
 	gotools.FileWrite(filepath.Join(c.STATIC_FOLDER, "style.css"), &public_css)
 

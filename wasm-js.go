@@ -548,6 +548,5 @@ func addWasmJsGo() string {
 				};
 			}
 		}
-	})();
-	`
+	})();`
 }

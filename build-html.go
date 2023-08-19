@@ -27,9 +27,11 @@ func (c *Compiler) BuildHTML(event_name string) error {
 		return err
 	}
 
-	err = htmlMinify(&template_html)
-	if err != nil {
-		return err
+	if c.minify {
+		err = htmlMinify(&template_html)
+		if err != nil {
+			return err
+		}
 	}
 
 	// crear archivo app html

@@ -13,6 +13,7 @@ import (
 )
 
 // options ej:
+// no_minify
 // tinygo (wasm compiler) default go
 // menu:<code html here> default ""
 // modules:<code html here> default ""
@@ -29,6 +30,7 @@ func Config(options ...string) *Compiler {
 		modules:               []*module{},
 		components:            map[string]*component{},
 		DirectoriesRegistered: map[string]struct{}{},
+		minify:                true,
 	}
 
 	usr, err := user.Current()
@@ -57,6 +59,10 @@ func Config(options ...string) *Compiler {
 
 	for _, arg := range os.Args {
 		switch {
+
+		case arg == "no_minify":
+			c.minify = false
+
 		case arg == "tinygo":
 			c.with_tinyGo = true
 

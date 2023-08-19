@@ -529,6 +529,5 @@ func addWasmJsTinyGo() string {
 			process.exit(1);
 		});
 	}
-})();
-`
+})();`
 }
