@@ -107,11 +107,6 @@ func Config(options ...string) *Compiler {
 
 	c.wasm_file_name = "wasm_main.go"
 
-	c.js_wasm_import = `const go = new Go();
-	WebAssembly.instantiateStreaming(fetch("static/app.wasm"), go.importObject).then((result) => {
-		go.run(result.instance);
-	});`
-
 	c.WORK_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend")
 	c.BUILT_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built")
 	c.STATIC_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built", "static")
