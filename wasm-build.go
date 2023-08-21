@@ -35,14 +35,12 @@ func (c Compiler) BuildWASM(event_name string) error {
 
 		output, err := cmd.CombinedOutput()
 		if err != nil {
-			// if err := cmd.Run(); err != nil {
-			fmt.Fprintln(os.Stderr, string(output))
-			return fmt.Errorf("al compilar a WebAssembly: %v", err)
+			return fmt.Errorf("error al compilar a WebAssembly: %v %v", err, string(output))
 		}
 
 		// Verificamos si el archivo wasm se creó correctamente
 		if _, err := os.Stat(out_wasm_file); err != nil {
-			return fmt.Errorf("el archivo WebAssembly no se creó correctamente: %v", err)
+			return fmt.Errorf("error el archivo WebAssembly no se creó correctamente: %v", err)
 		}
 
 		// fmt.Printf("WebAssembly compilado correctamente y guardado en %s\n", out_wasm_file)
