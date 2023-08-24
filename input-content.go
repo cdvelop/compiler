@@ -14,7 +14,7 @@ import (
 func (c Compiler) attachInputsContentFromModule(m *module, extension string, out *bytes.Buffer) {
 
 	if m.folder_path != "" && extension != "" {
-		// obtenemos los nombres de  los input usados del modulo
+		// obtenemos los nombres de  los input de tipo go usados del modulo
 		input_names, err := gotools.GetNamesFromDirectoryExtensionAndPattern(m.folder_path, ".go", model.INPUT_PATTERN)
 		if err != nil {
 			ShowErrorAndExit(err.Error())
