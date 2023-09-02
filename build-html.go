@@ -70,6 +70,11 @@ func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err error) {
 		return
 	}
 
+	// template.HTMLEscapeString()
+	if c.Page.DataBootActions == "" {
+		c.Page.DataBootActions = `{{.DataBootActions}}`
+	}
+
 	err = t.Execute(&html, c.Page)
 	if err != nil {
 		log.Fatal(err)
