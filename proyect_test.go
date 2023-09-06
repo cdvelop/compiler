@@ -61,6 +61,7 @@ func Test_CompileProject(t *testing.T) {
 		if gotools.TextExists(c.STATIC_FOLDER+"/main.js", search.JsListener(test_dir)) == 0 {
 			log.Fatalln("EN main.js NO EXISTE: ", search.JsListener(test_dir))
 		}
+
 		// removeEventListener se crea de forma dinámica
 		if gotools.TextExists(c.STATIC_FOLDER+"/main.js", search.Check().RemoveEventListenerExpected()) == 0 {
 			log.Fatalln("EN main.js NO EXISTE: ", search.Check().RemoveEventListenerExpected())
@@ -81,6 +82,16 @@ func Test_CompileProject(t *testing.T) {
 
 		if gotools.TextExists(c.BUILT_FOLDER+"/index.html", module_product.Get().Icon(test_dir)) > 1 {
 			log.Fatalln("EN index.html icono repetido SÍMBOLO SVG ID : ", module_product.Get().Icon(test_dir))
+		}
+
+		const icon_repeat = "icon-repeat"
+
+		if gotools.TextExists(c.BUILT_FOLDER+"/index.html", icon_repeat) == 0 {
+			log.Fatalln("EN index.html NO SE CREO EL SÍMBOLO SVG ID : ", icon_repeat)
+		}
+
+		if gotools.TextExists(c.BUILT_FOLDER+"/index.html", icon_repeat) > 1 {
+			log.Fatalln("EN index.html icono repetido SÍMBOLO SVG ID : ", icon_repeat)
 		}
 
 	}

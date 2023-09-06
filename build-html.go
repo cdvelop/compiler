@@ -20,6 +20,8 @@ func (c *Compiler) BuildHTML(event_name string) error {
 
 	}
 
+	c.buildIconsSvg()
+
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
 	template_html, err := c.makeHtmlTemplate()
@@ -71,8 +73,8 @@ func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err error) {
 	}
 
 	// template.HTMLEscapeString()
-	if c.Page.DataBootActions == "" {
-		c.Page.DataBootActions = `{{.DataBootActions}}`
+	if c.Page.JsonBootActions == "" {
+		c.Page.JsonBootActions = `{{.JsonBootActions}}`
 	}
 
 	err = t.Execute(&html, c.Page)

@@ -4,8 +4,6 @@ import (
 	"fmt"
 
 	"github.com/cdvelop/gomod"
-	"github.com/cdvelop/gotools"
-	. "github.com/cdvelop/output"
 )
 
 func (c *Compiler) createModule(name, path string, components_names ...string) (m *module, err error) {
@@ -42,12 +40,9 @@ func (c *Compiler) addModule(new *module) {
 
 		fmt.Println("modulo: ", new.name, " componentes: ", new.components_names)
 
-		fmt.Println("AGREGAR ICONO SVG A HTML")
+		c.addSvgIcon(new.folder_path)
 
-		err := gotools.AddStringContendFromDirAndExtension(new.folder_path, ".svg", &c.Page.SpriteIcons)
-		if err != nil {
-			ShowErrorAndExit(err.Error())
-		}
+		c.DirectoriesRegistered[new.folder_path] = struct{}{}
 
 	}
 }

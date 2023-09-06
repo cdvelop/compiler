@@ -1,7 +1,6 @@
 package compiler
 
 import (
-	"fmt"
 	"path/filepath"
 	"strings"
 
@@ -14,7 +13,7 @@ func (c *Compiler) registrationFromCurrentDirectory() {
 	current_project := filepath.Base(c.project_dir)
 
 	if strings.Contains(current_project, "module") {
-		fmt.Println("el proyecto actual es un modulo")
+		// fmt.Println("el proyecto actual es un modulo")
 
 		new, err := c.createModule(current_project, c.project_dir)
 		if err != nil {
@@ -24,7 +23,7 @@ func (c *Compiler) registrationFromCurrentDirectory() {
 		c.addModule(new)
 
 	} else {
-		fmt.Println("=> directorio actual es un:")
+		// fmt.Println("=> directorio actual es un:")
 
 		modules_names, components_names, err := gomod.GetSeparateUsedPackageNames(c.project_dir)
 		if err != nil {
@@ -32,7 +31,7 @@ func (c *Compiler) registrationFromCurrentDirectory() {
 		}
 
 		for _, module_name := range modules_names {
-			fmt.Println("proyecto principal. creando módulo: ", module_name)
+			// fmt.Println("proyecto principal. creando módulo: ", module_name)
 
 			module_dir := filepath.Join(c.modules_dir, module_name)
 

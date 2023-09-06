@@ -38,5 +38,4 @@ func Js(test_dir string) string {
 
 func JsListener(test_dir string) string {
 	return filepath.Join(test_dir, "components/search/js_module/listener-add.js")
-
 }

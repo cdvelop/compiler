@@ -21,6 +21,9 @@ type Compiler struct {
 	//componentes registrados
 	components map[string]*component
 
+	//id icono mas contenido
+	svg_icons map[string]struct{}
+
 	wasm_file_name string
 	js_wasm_import string
 
@@ -29,6 +32,8 @@ type Compiler struct {
 	STATIC_FOLDER string
 
 	DirectoriesRegistered map[string]struct{}
+
+	log bool
 }
 
 type module struct {

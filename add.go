@@ -1,7 +1,6 @@
 package compiler
 
 import (
-	"fmt"
 	"os"
 	"os/user"
 	"path/filepath"
@@ -29,6 +28,7 @@ func Config(options ...string) *Compiler {
 		Page:                  model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
 		modules:               []*module{},
 		components:            map[string]*component{},
+		svg_icons:             map[string]struct{}{},
 		DirectoriesRegistered: map[string]struct{}{},
 		minify:                true,
 	}
@@ -47,7 +47,10 @@ func Config(options ...string) *Compiler {
 	root_project_dir := current_dir
 	gotools.RemoveSuffixIfPresent(&root_project_dir, "\\cmd")
 
-	fmt.Println("DIRECTORIO ACTUAL: ", current_dir, " PROJECT ROOT: ", root_project_dir)
+	// fmt.Println("DIRECTORIO ACTUAL: ", current_dir, " PROJECT ROOT: ", root_project_dir)
+
+	// PrintInfo("DIRECTORIO ACTUAL:", current_dir)
+	// PrintInfo("PROJECT ROOT:", root_project_dir)
 
 	c.DirectoriesRegistered[root_project_dir] = struct{}{}
 	c.project_dir = current_dir
@@ -111,12 +114,12 @@ func Config(options ...string) *Compiler {
 	c.BUILT_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built")
 	c.STATIC_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built", "static")
 
-	PrintInfo("THEME FOLDER: " + c.theme_dir)
+	// PrintInfo("THEME FOLDER:", c.theme_dir)
 	c.DirectoriesRegistered[c.theme_dir] = struct{}{}
 
-	PrintInfo("PROJECT DIR: " + c.project_dir)
-	PrintInfo("MODULES DIR: " + c.modules_dir)
-	PrintInfo("COMPONENT DIR: " + c.components_dir)
+	// PrintInfo("PROJECT DIR: ", c.project_dir)
+	// PrintInfo("MODULES DIR: ", c.modules_dir)
+	// PrintInfo("COMPONENT DIR: ", c.components_dir)
 
 	return &c
 }
