@@ -8,10 +8,11 @@ import (
 
 type search struct{}
 
-func Add() *model.Object {
+func Add(m *model.Module) *model.Object {
 
 	return &model.Object{
-		Name: "search",
+		Name:   "search",
+		Module: m,
 	}
 }
 

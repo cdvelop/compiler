@@ -24,10 +24,9 @@ func Get() *module {
 		},
 	}
 
-	product_object := m.Object()
-	product_object.AddModule(m.Module)
+	// product_object := m.Object()
 
-	search.Add().AddModule(m.Module)
+	search.Add(m.Module)
 
 	return &m
 }
@@ -40,6 +39,7 @@ func (m module) Object() *model.Object {
 			{Name: "name", Legend: "Nombre", Input: input.Text()},
 			{Name: "mail", Legend: "Nombre", Input: input.Text()},
 		},
+		Module: m.Module,
 	}
 }
 
