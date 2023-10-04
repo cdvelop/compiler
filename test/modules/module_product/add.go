@@ -33,8 +33,8 @@ func Get() *module {
 
 func (m module) Object() *model.Object {
 	return &model.Object{
-		Name:           "product",
-		TextFieldNames: []string{},
+		Name:                "product",
+		NamePrincipalFields: []string{},
 		Fields: []model.Field{
 			{Name: "name", Legend: "Nombre", Input: input.Text()},
 			{Name: "mail", Legend: "Nombre", Input: input.Text()},
