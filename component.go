@@ -9,6 +9,7 @@ func (c *Compiler) registerComponents(components_names []string) {
 
 	for _, component_name := range components_names {
 
+		// fmt.Println("*** COMPONENTE:", component_name)
 		if _, no_exist := c.components[component_name]; !no_exist {
 
 			folder_path := filepath.Join(c.components_dir, component_name)
@@ -18,8 +19,7 @@ func (c *Compiler) registerComponents(components_names []string) {
 				// fmt.Println("*** ERROR COMPONENTE:", component_name, err)
 				// fmt.Println("*** ERROR PATH NO EXISTE:", folder_path)
 
-				// fmt.Println("*** OK AGREGANDO COMPONENTE:", component_name)
-				// fmt.Println("*** PATH:", folder_path)
+				// fmt.Print(" ***  OK AGREGANDO PATH:", folder_path, "\n")
 
 				new_component := component{
 					name:        component_name,
