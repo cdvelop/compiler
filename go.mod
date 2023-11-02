@@ -3,7 +3,7 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/model v0.0.63
+	github.com/cdvelop/model v0.0.64
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
 
