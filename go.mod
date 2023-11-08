@@ -3,20 +3,20 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/model v0.0.65
+	github.com/cdvelop/model v0.0.66
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
 
 require (
-	github.com/cdvelop/timetools v0.0.4 // indirect
+	github.com/cdvelop/timetools v0.0.14 // indirect
 	github.com/tdewolff/test v1.0.9 // indirect
-	golang.org/x/text v0.12.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 )
 
 require (
 	github.com/cdvelop/gomod v0.0.23
-	github.com/cdvelop/gotools v0.0.43
-	github.com/cdvelop/input v0.0.26
+	github.com/cdvelop/gotools v0.0.54
+	github.com/cdvelop/input v0.0.48
 	github.com/cdvelop/output v0.0.2
 	github.com/cdvelop/platform v0.0.36
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
