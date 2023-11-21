@@ -9,7 +9,7 @@ require (
 
 require (
 	github.com/cdvelop/strings v0.0.7 // indirect
-	github.com/cdvelop/timetools v0.0.14 // indirect
+	github.com/cdvelop/timetools v0.0.19 // indirect
 	github.com/tdewolff/test v1.0.9 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )

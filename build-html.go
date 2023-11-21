@@ -75,6 +75,7 @@ func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err error) {
 	// template.HTMLEscapeString()
 	if c.Page.JsonBootActions == "" {
 		c.Page.JsonBootActions = `{{.JsonBootActions}}`
+		c.Page.JsonBootTests = `{{.JsonBootTests}}`
 	}
 
 	err = t.Execute(&html, c.Page)
