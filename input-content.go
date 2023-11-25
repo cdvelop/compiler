@@ -5,7 +5,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cdvelop/gotools"
+	"github.com/cdvelop/fileserver"
 	"github.com/cdvelop/model"
 	. "github.com/cdvelop/output"
 )
@@ -15,9 +15,9 @@ func (c Compiler) attachInputsContentFromModule(m *module, extension string, out
 
 	if m.folder_path != "" && extension != "" {
 		// obtenemos los nombres de  los input de tipo go usados del modulo
-		input_names, err := gotools.GetNamesFromDirectoryExtensionAndPattern(m.folder_path, ".go", model.INPUT_PATTERN)
-		if err != nil {
-			ShowErrorAndExit(err.Error())
+		input_names, err := fileserver.GetNamesFromDirectoryExtensionAndPattern(m.folder_path, ".go", model.INPUT_PATTERN)
+		if err != "" {
+			ShowErrorAndExit(err)
 		}
 
 		// OBTENER UBICACIÓN POR DEFECTO INPUTS

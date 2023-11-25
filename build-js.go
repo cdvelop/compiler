@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/cdvelop/gotools"
+	"github.com/cdvelop/fileserver"
 	"github.com/tdewolff/minify"
 	minjs "github.com/tdewolff/minify/js"
 )
@@ -24,7 +24,7 @@ func (c *Compiler) BuildJS(event_name string) error {
 	public_js.WriteString("'use strict';\n")
 
 	// fmt.Println(`1- comenzamos con el js del tema`)
-	gotools.ReadFiles(filepath.Join(c.theme_dir, "js"), ".js", &public_js)
+	fileserver.ReadFiles(filepath.Join(c.theme_dir, "js"), ".js", &public_js)
 
 	// fmt.Println(`2- leer js publico de los componentes`)
 
@@ -32,7 +32,7 @@ func (c *Compiler) BuildJS(event_name string) error {
 
 		if comp.folder_path != "" {
 
-			gotools.ReadFiles(filepath.Join(comp.folder_path, "js_global"), ".js", &public_js)
+			fileserver.ReadFiles(filepath.Join(comp.folder_path, "js_global"), ".js", &public_js)
 		}
 
 	}
@@ -54,10 +54,10 @@ func (c *Compiler) BuildJS(event_name string) error {
 
 		c.attachInputsContentFromModule(m, ".js", &public_js)
 
-		gotools.ReadFiles(filepath.Join(m.folder_path, "js_module"), ".js", &public_js)
+		fileserver.ReadFiles(filepath.Join(m.folder_path, "js_module"), ".js", &public_js)
 
 		// fmt.Println(`agregamos js test si existiesen`)
-		gotools.ReadFiles(filepath.Join(m.folder_path, "js_test"), ".js", &public_js)
+		fileserver.ReadFiles(filepath.Join(m.folder_path, "js_test"), ".js", &public_js)
 
 		// fmt.Println(`4- >>> escribiendo module JS: `, module.MainName)
 		public_js.WriteString(moduleJsTemplate(m.name, funtions.String(), listener_add.String(), listener_rem.String()))
@@ -80,7 +80,7 @@ func (c *Compiler) BuildJS(event_name string) error {
 		}
 	}
 
-	err := gotools.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
+	err := fileserver.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
 	if err != nil {
 		return err
 	}

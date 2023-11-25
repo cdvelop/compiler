@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/cdvelop/gotools"
+	"github.com/cdvelop/fileserver"
 	"github.com/tdewolff/minify"
 	mincss "github.com/tdewolff/minify/css"
 )
@@ -22,14 +22,14 @@ func (c Compiler) BuildCSS(event_name string) error {
 	public_css := bytes.Buffer{}
 
 	// fmt.Println(`1- comenzamos con el css del tema`)
-	err := gotools.ReadFiles(filepath.Join(c.theme_dir, "css"), ".css", &public_css)
+	err := fileserver.ReadFiles(filepath.Join(c.theme_dir, "css"), ".css", &public_css)
 	if err != nil {
 		return fmt.Errorf("el tema no contiene la carpeta /css")
 	}
 
 	for _, c := range c.components {
 		if c.folder_path != "" {
-			gotools.ReadFiles(c.folder_path, ".css", &public_css)
+			fileserver.ReadFiles(c.folder_path, ".css", &public_css)
 		}
 	}
 
@@ -42,7 +42,7 @@ func (c Compiler) BuildCSS(event_name string) error {
 		cssMinify(&public_css)
 	}
 
-	gotools.FileWrite(filepath.Join(c.STATIC_FOLDER, "style.css"), &public_css)
+	fileserver.FileWrite(filepath.Join(c.STATIC_FOLDER, "style.css"), &public_css)
 
 	return nil
 }

@@ -6,11 +6,11 @@ import (
 	"github.com/cdvelop/gomod"
 )
 
-func (c *Compiler) createModule(name, path string, components_names ...string) (m *module, err error) {
+func (c *Compiler) createModule(name, path string, components_names ...string) (m *module, err string) {
 
 	if len(components_names) == 0 {
 		_, components_names, err = gomod.GetSeparateUsedPackageNames(path)
-		if err != nil {
+		if err != "" {
 			return nil, err
 		}
 	}

@@ -3,14 +3,14 @@ package compiler
 import (
 	"log"
 
-	"github.com/cdvelop/gotools"
+	"github.com/cdvelop/fileserver"
 )
 
 func (c *Compiler) addSvgIcon(folder_path string) {
 	// fmt.Println("AGREGAR ICONO SVG A HTML")
 	var new_icons string
 
-	err := gotools.AddStringContendFromDirAndExtension(folder_path, ".svg", &new_icons)
+	err := fileserver.AddStringContendFromDirAndExtension(folder_path, ".svg", &new_icons)
 	if err != nil {
 		log.Println("ERROR NO SE LOGRO AGREGAR ICONO SVG DESDE ", folder_path)
 	}

@@ -10,6 +10,7 @@ import (
 	"github.com/cdvelop/compiler/test/components/search"
 	"github.com/cdvelop/compiler/test/modules/module_info"
 	"github.com/cdvelop/compiler/test/modules/module_product"
+	"github.com/cdvelop/fileserver"
 	"github.com/cdvelop/gotools"
 )
 
@@ -26,19 +27,19 @@ func Test_CompileProject(t *testing.T) {
 			wasm_compiler,
 		)
 
-		err := gotools.DeleteFilesByExtension(c.BUILT_FOLDER, []string{".html"})
-		if err != nil {
+		err := fileserver.DeleteFilesByExtension(c.BUILT_FOLDER, []string{".html"})
+		if err != "" {
 			log.Fatalln(err)
 		}
 
-		err = gotools.DeleteFilesByExtension(c.STATIC_FOLDER, []string{".js", ".css", ".wasm"})
-		if err != nil {
+		err = fileserver.DeleteFilesByExtension(c.STATIC_FOLDER, []string{".js", ".css", ".wasm"})
+		if err != "" {
 			log.Fatalln(err)
 		}
 		c.CompileAllProject()
 
-		err = gotools.FindFilesWithNonZeroSize(c.BUILT_FOLDER, []string{"index.html", "style.css", "main.js", "app.wasm"})
-		if err != nil {
+		err = fileserver.FindFilesWithNonZeroSize(c.BUILT_FOLDER, []string{"index.html", "style.css", "main.js", "app.wasm"})
+		if err != "" {
 			log.Fatal("Error:", err)
 		}
 

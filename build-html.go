@@ -9,7 +9,7 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/cdvelop/gotools"
+	"github.com/cdvelop/fileserver"
 	"github.com/tdewolff/minify"
 	minh "github.com/tdewolff/minify/html"
 )
@@ -37,7 +37,7 @@ func (c *Compiler) BuildHTML(event_name string) error {
 	}
 
 	// crear archivo app html
-	gotools.FileWrite(filepath.Join(c.BUILT_FOLDER, "index.html"), &template_html)
+	fileserver.FileWrite(filepath.Join(c.BUILT_FOLDER, "index.html"), &template_html)
 
 	return nil
 }

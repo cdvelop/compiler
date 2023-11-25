@@ -4,11 +4,10 @@ import (
 	"os"
 	"os/user"
 	"path/filepath"
-	"strings"
 
-	"github.com/cdvelop/gotools"
 	"github.com/cdvelop/model"
 	. "github.com/cdvelop/output"
+	"github.com/cdvelop/strings"
 )
 
 // options ej:
@@ -45,7 +44,7 @@ func Config(options ...string) *Compiler {
 	}
 
 	root_project_dir := current_dir
-	gotools.RemoveSuffixIfPresent(&root_project_dir, "\\cmd")
+	strings.RemoveSuffixIfPresent(&root_project_dir, "\\cmd")
 
 	// fmt.Println("DIRECTORIO ACTUAL: ", current_dir, " PROJECT ROOT: ", root_project_dir)
 
@@ -69,8 +68,8 @@ func Config(options ...string) *Compiler {
 		case arg == "tinygo":
 			c.with_tinyGo = true
 
-		case strings.Contains(arg, "theme_dir:"):
-			gotools.ExtractTwoPointArgument(arg, &c.theme_dir)
+		case strings.Contains(arg, "theme_dir:") != 0:
+			strings.ExtractTwoPointArgument(arg, &c.theme_dir)
 		}
 	}
 
@@ -81,29 +80,29 @@ func Config(options ...string) *Compiler {
 		case option == "tinygo":
 			c.with_tinyGo = true
 
-		case strings.Contains(option, "project_dir:"):
-			gotools.ExtractTwoPointArgument(option, &c.project_dir)
+		case strings.Contains(option, "project_dir:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.project_dir)
 
-		case strings.Contains(option, "compile_dir:"):
-			gotools.ExtractTwoPointArgument(option, &compile_dir)
+		case strings.Contains(option, "compile_dir:") != 0:
+			strings.ExtractTwoPointArgument(option, &compile_dir)
 
-		case strings.Contains(option, "modules_dir:"):
-			gotools.ExtractTwoPointArgument(option, &c.modules_dir)
+		case strings.Contains(option, "modules_dir:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.modules_dir)
 
-		case strings.Contains(option, "components_dir:"):
-			gotools.ExtractTwoPointArgument(option, &c.components_dir)
+		case strings.Contains(option, "components_dir:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.components_dir)
 
-		case strings.Contains(option, "theme_dir:"):
-			gotools.ExtractTwoPointArgument(option, &c.theme_dir)
+		case strings.Contains(option, "theme_dir:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.theme_dir)
 
-		case strings.Contains(option, "menu:"):
-			gotools.ExtractTwoPointArgument(option, &c.Page.Menu)
+		case strings.Contains(option, "menu:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.Page.Menu)
 
-		case strings.Contains(option, "modules:"):
-			gotools.ExtractTwoPointArgument(option, &c.Page.Modules)
+		case strings.Contains(option, "modules:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.Page.Modules)
 
-		case strings.Contains(option, "icons:"):
-			gotools.ExtractTwoPointArgument(option, &c.Page.SpriteIcons)
+		case strings.Contains(option, "icons:") != 0:
+			strings.ExtractTwoPointArgument(option, &c.Page.SpriteIcons)
 
 		}
 	}

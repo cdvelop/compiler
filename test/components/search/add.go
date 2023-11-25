@@ -11,8 +11,8 @@ type search struct{}
 func Add(m *model.Module) *model.Object {
 
 	return &model.Object{
-		Name:   "search",
-		Module: m,
+		ObjectName: "search",
+		Module:     m,
 	}
 }
 

@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/cdvelop/gotools"
+	"github.com/cdvelop/fileserver"
 )
 
 func (c Compiler) copyStaticFilesFromUiTheme() {
@@ -31,7 +31,7 @@ func (c Compiler) copyStaticFilesFromUiTheme() {
 			// Verificar si el archivo destino ya existe
 			if _, err := os.Stat(dest); os.IsNotExist(err) {
 				// Si el archivo destino no existe, copiar el archivo
-				err := gotools.CopyFile(src, dest)
+				err := fileserver.CopyFile(src, dest)
 				if err != nil {
 					panic(err)
 				}
