@@ -20,6 +20,9 @@ func (c Compiler) BuildWASM(event_name string) error {
 
 		out_wasm_file := filepath.Join(c.STATIC_FOLDER, "/app.wasm")
 
+		// delete file anterior
+		os.Remove(out_wasm_file)
+
 		// fmt.Println("WITH TINY GO?: ", c.with_tinyGo)
 		// Ajustamos los parámetros de compilación según la configuración
 		if c.with_tinyGo {
@@ -28,7 +31,6 @@ func (c Compiler) BuildWASM(event_name string) error {
 
 		} else {
 			// compilación normal...
-			// fmt.Println("*** COMPILACIÓN WASM GO ***")
 			cmd = exec.Command("go", "build", "-o", out_wasm_file, "-tags", "dev", "-ldflags", "-s -w", "-v", input_go_file)
 			cmd.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm")
 		}

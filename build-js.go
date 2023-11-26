@@ -60,6 +60,7 @@ func (c *Compiler) BuildJS(event_name string) error {
 		fileserver.ReadFiles(filepath.Join(m.folder_path, "js_test"), ".js", &public_js)
 
 		// fmt.Println(`4- >>> escribiendo module JS: `, module.MainName)
+
 		public_js.WriteString(moduleJsTemplate(m.name, funtions.String(), listener_add.String(), listener_rem.String()))
 
 	}
@@ -89,18 +90,24 @@ func (c *Compiler) BuildJS(event_name string) error {
 }
 
 func moduleJsTemplate(module_name, functions, listener_add, listener_rem string) string {
-	return `MODULES['` + module_name + `'] = (function () {
-	let crud = new Object();
-	const module = document.getElementById('` + module_name + `');
-	` + functions + `
-	crud.ListenerModuleON = function () {
-	 ` + listener_add + `
-	};
-	crud.ListenerModuleOFF = function () {
-	 ` + listener_rem + `
-	};
-	return crud;
-})();`
+
+	if functions != "" || listener_add != "" && listener_rem != "" {
+
+		return `MODULES['` + module_name + `'] = (function () {
+		let crud = new Object();
+		const module = document.getElementById('` + module_name + `');
+		` + functions + `
+		crud.ListenerModuleON = function () {
+		 ` + listener_add + `
+		};
+		crud.ListenerModuleOFF = function () {
+		 ` + listener_rem + `
+		};
+		return crud;
+	})();`
+	}
+
+	return ""
 }
 
 func jsMinify(data_in *bytes.Buffer) error {
