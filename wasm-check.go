@@ -9,9 +9,9 @@ import (
 func (c *Compiler) webAssemblyCheck() {
 	// chequear si existe wasm_main.go en la ruta de trabajo ej: cmd/frontend/wasm_main.go
 
-	fmt.Println("CARPETA DE TRABAJO: ", c.WORK_FOLDER, " ARCHIVO WASM: ", c.wasm_file_name)
+	// fmt.Println("CARPETA DE TRABAJO: ", c.WORK_FOLDER, " ARCHIVO WASM: ", c.wasm_file_name)
 
-	_, err := os.Open(filepath.Join(c.WORK_FOLDER, c.wasm_file_name))
+	_, err := os.Open(filepath.Join(c.WORK_FOLDER, c.test_wasm_folder, c.wasm_file_name))
 	if err == nil {
 		var wasm_compiler_name string
 
@@ -35,10 +35,10 @@ func (c *Compiler) webAssemblyCheck() {
 
 		c.js_wasm_import = `const go = new Go();
 		` + remove_message + `
-		WebAssembly.instantiateStreaming(fetch("static/app.wasm"), go.importObject).then((result) => {
+		WebAssembly.instantiateStreaming(fetch("static/app` + c.test_suffix + `.wasm"), go.importObject).then((result) => {
 			go.run(result.instance);
 		});`
 
-		fmt.Printf("*** Proyecto WebAssembly: [%v] Compilador: [%v] ***\n", c.wasm_file_name, wasm_compiler_name)
+		fmt.Printf("*** Proyecto %v WebAssembly: [%v] Compilador: [%v] ***\n", c.test_wasm_folder, c.wasm_file_name, wasm_compiler_name)
 	}
 }

@@ -77,6 +77,10 @@ func Config(options ...string) *Compiler {
 
 		switch {
 
+		case strings.Contains(option, "test:") != 0:
+			c.test_wasm_folder = "test"
+			c.test_suffix = "_test"
+
 		case option == "tinygo":
 			c.with_tinyGo = true
 
@@ -107,7 +111,9 @@ func Config(options ...string) *Compiler {
 		}
 	}
 
-	c.wasm_file_name = "wasm_main.go"
+	c.wasm_file_name = "main_wasm.go"
+
+	// log.Println("*** c.test_wasm_folder: ", c.test_wasm_folder)
 
 	c.WORK_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend")
 	c.BUILT_FOLDER = filepath.Join(c.project_dir, compile_dir, "frontend", "built")
@@ -134,7 +140,7 @@ func (c *Compiler) CompileAllProject() {
 	c.webAssemblyCheck()
 
 	err := c.Rebuild()
-	if err != nil {
+	if err != "" {
 		ShowErrorAndExit(err)
 	}
 }

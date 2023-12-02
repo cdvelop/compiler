@@ -24,6 +24,11 @@ type Compiler struct {
 	//id icono mas contenido
 	svg_icons map[string]struct{}
 
+	// test ej test
+	test_wasm_folder string
+	// ej "_test"
+	test_suffix string
+
 	wasm_file_name string
 	js_wasm_import string
 

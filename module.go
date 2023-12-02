@@ -1,8 +1,6 @@
 package compiler
 
 import (
-	"fmt"
-
 	"github.com/cdvelop/gomod"
 )
 
@@ -38,7 +36,7 @@ func (c *Compiler) addModule(new *module) {
 
 		c.registerComponents(new.components_names)
 
-		fmt.Println("modulo: ", new.name, " componentes: ", new.components_names)
+		// fmt.Println("modulo: ", new.name, " componentes: ", new.components_names)
 
 		c.addSvgIcon(new.folder_path)
 

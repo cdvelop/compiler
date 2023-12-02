@@ -7,16 +7,17 @@ import (
 	"github.com/cdvelop/fileserver"
 )
 
-func (c Compiler) copyStaticFilesFromUiTheme() {
+func (c Compiler) copyStaticFilesFromUiTheme() (err string) {
+	const this = "copyStaticFilesFromUiTheme error "
 	// Definir las extensiones o tipos de archivo permitidos
 	validExtensions := map[string]bool{".js": true, ".css": true, ".wasm": true}
 
 	// Obtener la lista de archivos en la carpeta origen
 	srcDir := filepath.Join(c.theme_dir, "/static")
 	destDir := filepath.Join(c.BUILT_FOLDER, "/static")
-	files, err := os.ReadDir(srcDir)
-	if err != nil {
-		panic(err)
+	files, er := os.ReadDir(srcDir)
+	if er != nil {
+		return this + er.Error()
 	}
 
 	// Recorrer la lista de archivos
@@ -29,13 +30,15 @@ func (c Compiler) copyStaticFilesFromUiTheme() {
 			dest := filepath.Join(destDir, file.Name())
 
 			// Verificar si el archivo destino ya existe
-			if _, err := os.Stat(dest); os.IsNotExist(err) {
+			if _, er := os.Stat(dest); os.IsNotExist(er) {
 				// Si el archivo destino no existe, copiar el archivo
-				err := fileserver.CopyFile(src, dest)
-				if err != nil {
-					panic(err)
+				err = fileserver.CopyFile(src, dest)
+				if err != "" {
+					return this + err
 				}
 			}
 		}
 	}
+
+	return
 }

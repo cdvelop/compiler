@@ -12,7 +12,8 @@ import (
 	mincss "github.com/tdewolff/minify/css"
 )
 
-func (c Compiler) BuildCSS(event_name string) error {
+func (c Compiler) BuildCSS(event_name string) (err string) {
+	const this = "BuildCSS error "
 	if event_name != "" {
 		fmt.Println("Compilando CSS..." + event_name)
 	}
@@ -22,9 +23,9 @@ func (c Compiler) BuildCSS(event_name string) error {
 	public_css := bytes.Buffer{}
 
 	// fmt.Println(`1- comenzamos con el css del tema`)
-	err := fileserver.ReadFiles(filepath.Join(c.theme_dir, "css"), ".css", &public_css)
-	if err != nil {
-		return fmt.Errorf("el tema no contiene la carpeta /css")
+	err = fileserver.ReadFiles(filepath.Join(c.theme_dir, "css"), ".css", &public_css)
+	if err != "" {
+		return this + "el tema no contiene la carpeta /css"
 	}
 
 	for _, c := range c.components {
@@ -44,7 +45,7 @@ func (c Compiler) BuildCSS(event_name string) error {
 
 	fileserver.FileWrite(filepath.Join(c.STATIC_FOLDER, "style.css"), &public_css)
 
-	return nil
+	return ""
 }
 
 func cssMinify(data_in *bytes.Buffer) {

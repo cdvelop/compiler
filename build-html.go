@@ -3,7 +3,6 @@ package compiler
 import (
 	"bytes"
 	"fmt"
-	"log"
 	"os"
 	"path/filepath"
 	"text/template"
@@ -14,7 +13,8 @@ import (
 	minh "github.com/tdewolff/minify/html"
 )
 
-func (c *Compiler) BuildHTML(event_name string) error {
+func (c *Compiler) BuildHTML(event_name string) (err string) {
+	const this = "BuildHTML error "
 	if event_name != "" {
 		fmt.Println("Compilando HTML..." + event_name)
 
@@ -25,63 +25,60 @@ func (c *Compiler) BuildHTML(event_name string) error {
 	time.Sleep(10 * time.Millisecond) // Esperar antes de intentar leer el archivo de nuevo
 
 	template_html, err := c.makeHtmlTemplate()
-	if err != nil {
-		return err
+	if err != "" {
+		return this + err
 	}
 
 	if c.minify {
 		err = htmlMinify(&template_html)
-		if err != nil {
-			return err
+		if err != "" {
+			return this + err
 		}
 	}
 
 	// crear archivo app html
-	fileserver.FileWrite(filepath.Join(c.BUILT_FOLDER, "index.html"), &template_html)
 
-	return nil
+	return fileserver.FileWrite(filepath.Join(c.BUILT_FOLDER, "index.html"), &template_html)
 }
 
-func htmlMinify(data_in *bytes.Buffer) error {
+func htmlMinify(data_in *bytes.Buffer) (err string) {
 
 	m := minify.New()
 	m.AddFunc("text/html", minh.Minify)
 
 	var temp_result bytes.Buffer
-	err := m.Minify("text/html", &temp_result, data_in)
-	if err != nil {
-		return fmt.Errorf("minification html error: %v", err)
+	er := m.Minify("text/html", &temp_result, data_in)
+	if er != nil {
+		return "htmlMinify error: " + err
 	}
 
 	data_in.Reset()
 	*data_in = temp_result
 
-	return nil
+	return ""
 }
 
-func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err error) {
-
-	data, err := os.ReadFile(filepath.Join(c.theme_dir, "index.html"))
-	if err != nil {
-		fmt.Println("THEME FOLDER: ", c.theme_dir)
-		fmt.Println("Error al leer el archivo:", err)
+func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err string) {
+	const this = "makeHtmlTemplate error "
+	data, er := os.ReadFile(filepath.Join(c.theme_dir, "index.html"))
+	if er != nil {
+		err = this + "THEME FOLDER: " + c.theme_dir + " " + er.Error()
+		return
 	}
-	t, err := template.New("").Parse(string(data))
-	if err != nil {
-		log.Fatal(err)
+	t, er := template.New("").Parse(string(data))
+	if er != nil {
+		err = this + er.Error()
 		return
 	}
 
 	// template.HTMLEscapeString()
 	if c.Page.JsonBootActions == "" {
 		c.Page.JsonBootActions = `{{.JsonBootActions}}`
-		c.Page.JsonBootTests = `{{.JsonBootTests}}`
 	}
 
-	err = t.Execute(&html, c.Page)
-	if err != nil {
-		log.Fatal(err)
-		return
+	er = t.Execute(&html, c.Page)
+	if er != nil {
+		err = this + er.Error()
 	}
 
 	return

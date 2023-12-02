@@ -4,29 +4,29 @@ import (
 	"fmt"
 )
 
-func (c Compiler) Rebuild() error {
+func (c Compiler) Rebuild() (err string) {
 
 	fmt.Println("... recompilando app archivos: html,css,js,wasm ...")
 
-	err := c.BuildHTML("")
-	if err != nil {
-		return err
+	err = c.BuildHTML("")
+	if err != "" {
+		return
 	}
 
 	err = c.BuildJS("")
-	if err != nil {
-		return err
+	if err != "" {
+		return
 	}
 
 	err = c.BuildCSS("")
-	if err != nil {
-		return err
+	if err != "" {
+		return
 	}
 
 	err = c.BuildWASM("")
-	if err != nil {
-		return err
+	if err != "" {
+		return
 	}
 
-	return nil
+	return ""
 }

@@ -11,7 +11,7 @@ import (
 	minjs "github.com/tdewolff/minify/js"
 )
 
-func (c *Compiler) BuildJS(event_name string) error {
+func (c *Compiler) BuildJS(event_name string) (err string) {
 	if event_name != "" {
 		fmt.Println("Compilando JS..." + event_name)
 	}
@@ -75,18 +75,13 @@ func (c *Compiler) BuildJS(event_name string) error {
 	}
 
 	if c.minify {
-		err := jsMinify(&public_js)
-		if err != nil {
+		err = jsMinify(&public_js)
+		if err != "" {
 			return err
 		}
 	}
 
-	err := fileserver.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return fileserver.FileWrite(filepath.Join(c.STATIC_FOLDER, "main.js"), &public_js)
 }
 
 func moduleJsTemplate(module_name, functions, listener_add, listener_rem string) string {
@@ -110,19 +105,19 @@ func moduleJsTemplate(module_name, functions, listener_add, listener_rem string)
 	return ""
 }
 
-func jsMinify(data_in *bytes.Buffer) error {
+func jsMinify(data_in *bytes.Buffer) (err string) {
 
 	m := minify.New()
 	m.AddFunc("text/javascript", minjs.Minify)
 
 	var temp_result bytes.Buffer
-	err := m.Minify("text/javascript", &temp_result, data_in)
-	if err != nil {
-		return fmt.Errorf("minification js error: %v", err)
+	er := m.Minify("text/javascript", &temp_result, data_in)
+	if er != nil {
+		return "minification js error: " + er.Error()
 	}
 
 	data_in.Reset()
 	*data_in = temp_result
 
-	return nil
+	return ""
 }
