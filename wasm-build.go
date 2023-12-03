@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+
+	"github.com/cdvelop/ldflags"
 )
 
 func (c Compiler) BuildWASM(event_name string) (err string) {
@@ -35,15 +37,22 @@ func (c Compiler) BuildWASM(event_name string) (err string) {
 		// delete file anterior
 		os.Remove(out_wasm_file)
 
+		flags, err := ldflags.Add(c.EncryptionKey())
+		if err != "" {
+			return this + err
+		}
+
 		// log.Println("*** input_go_file: ", input_go_file)
 		// Ajustamos los parámetros de compilación según la configuración
 		if c.with_tinyGo {
 			// fmt.Println("*** COMPILACIÓN WASM TINYGO ***")
-			cmd = exec.Command("tinygo", "build", "-o", out_wasm_file, "-target", "wasm", input_go_file)
+			cmd = exec.Command("tinygo", "build", "-o", out_wasm_file, "-target", "wasm", "-ldflags", flags, input_go_file)
 
 		} else {
 			// compilación normal...
-			cmd = exec.Command("go", "build", "-o", out_wasm_file, "-tags", "dev", "-ldflags", "-s -w", "-v", input_go_file)
+
+			cmd = exec.Command("go", "build", "-o", out_wasm_file, "-tags", "dev", "-ldflags", flags, "-v", input_go_file)
+			// cmd = exec.Command("go", "build", "-o", out_wasm_file, "-tags", "dev", "-ldflags", "-s -w", "-v", input_go_file)
 			cmd.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm")
 		}
 

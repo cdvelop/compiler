@@ -3,6 +3,7 @@ package compiler
 import (
 	"bytes"
 	"fmt"
+	"os"
 	"path/filepath"
 	"time"
 
@@ -12,6 +13,7 @@ import (
 )
 
 func (c *Compiler) BuildJS(event_name string) (err string) {
+	const this = "BuildJS error "
 	if event_name != "" {
 		fmt.Println("Compilando JS..." + event_name)
 	}
@@ -66,11 +68,24 @@ func (c *Compiler) BuildJS(event_name string) (err string) {
 	}
 
 	if c.wasm_build {
+		var path_wasm_js string
 		if c.with_tinyGo {
-			public_js.WriteString(addWasmJsTinyGo())
+			path_wasm_js, err = wasmExecJsPathTinyGo()
 		} else {
-			public_js.WriteString(addWasmJsGo())
+			path_wasm_js, err = wasmExecJsPathGo()
 		}
+		if err != "" {
+			return this + err
+		}
+
+		// Leemos el contenido del archivo
+		wasm_js_content, er := os.ReadFile(path_wasm_js)
+		if er != nil {
+			return this + er.Error()
+		}
+
+		public_js.Write(wasm_js_content)
+
 		public_js.WriteString(c.js_wasm_import)
 	}
 

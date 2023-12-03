@@ -20,7 +20,7 @@ func Get() *module {
 			Title:      "Productos TEST",
 			IconID:     "icon-products",
 			UI:         module{},
-			Areas:      []byte{'a', 't'},
+			Areas:      map[string]string{"a": "", "t": ""},
 		},
 	}
 

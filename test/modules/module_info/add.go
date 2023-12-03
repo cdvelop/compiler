@@ -16,7 +16,7 @@ func Get() *module {
 			ModuleName: "module_info",
 			Title:      "Información Plataforma TEST",
 			IconID:     "icon-info",
-			Areas:      []byte{'0', 't'},
+			Areas:      map[string]string{"0": "", "t": ""},
 		},
 	}
 }

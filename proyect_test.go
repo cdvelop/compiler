@@ -13,6 +13,12 @@ import (
 	"github.com/cdvelop/gotools"
 )
 
+type key struct{}
+
+func (key) EncryptionKey() map[string]string {
+	return map[string]string{"main.key": "123"}
+}
+
 func Test_CompileProject(t *testing.T) {
 	dir, _ := os.Getwd()
 	test_dir := filepath.Join(dir, "test")
@@ -24,6 +30,7 @@ func Test_CompileProject(t *testing.T) {
 			// var arg string
 
 			c := compiler.Config(
+				key{},
 				"project_dir:"+filepath.Join(test_dir, "project"),
 				"modules_dir:"+filepath.Join(test_dir, "modules"),
 				"components_dir:"+filepath.Join(test_dir, "components"),

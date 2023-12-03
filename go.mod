@@ -3,17 +3,18 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/model v0.0.74
+	github.com/cdvelop/model v0.0.75
 	github.com/cdvelop/strings v0.0.7
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.10 // indirect
+	github.com/cdvelop/filehandler v0.0.11 // indirect
+	github.com/cdvelop/git v0.0.1 // indirect
 	github.com/cdvelop/maps v0.0.7 // indirect
-	github.com/cdvelop/object v0.0.38 // indirect
-	github.com/cdvelop/timetools v0.0.23 // indirect
-	github.com/cdvelop/unixid v0.0.23 // indirect
+	github.com/cdvelop/object v0.0.39 // indirect
+	github.com/cdvelop/timetools v0.0.24 // indirect
+	github.com/cdvelop/unixid v0.0.24 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/test v1.0.10 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
@@ -23,15 +24,18 @@ require (
 
 require (
 	github.com/cdvelop/fileserver v0.0.29
-	github.com/cdvelop/gomod v0.0.42
-	github.com/cdvelop/gotools v0.0.62
-	github.com/cdvelop/input v0.0.57
+	github.com/cdvelop/gomod v0.0.43
+	github.com/cdvelop/gotools v0.0.63
+	github.com/cdvelop/input v0.0.58
+	github.com/cdvelop/ldflags v0.0.1
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.45
+	github.com/cdvelop/platform v0.0.46
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 )
 
 replace github.com/cdvelop/model => ../model
+
+replace github.com/cdvelop/ldflags => ../ldflags
 
 replace github.com/cdvelop/js => ../js
 

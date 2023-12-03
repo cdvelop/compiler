@@ -21,7 +21,7 @@ import (
 // compile_dir:cmd default ""
 // components_dir:c:\go\pkg default HomeUserDir/Packages/go
 // theme_dir:c:\pkg\go\store default:HomeUserDir/Packages/go/platform
-func Config(options ...string) *Compiler {
+func Config(key encryptionKey, options ...string) *Compiler {
 
 	c := Compiler{
 		Page:                  model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
@@ -30,6 +30,8 @@ func Config(options ...string) *Compiler {
 		svg_icons:             map[string]struct{}{},
 		DirectoriesRegistered: map[string]struct{}{},
 		minify:                true,
+
+		encryptionKey: key,
 	}
 
 	usr, err := user.Current()
