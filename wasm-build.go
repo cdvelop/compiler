@@ -37,7 +37,7 @@ func (c Compiler) BuildWASM(event_name string) (err string) {
 		// delete file anterior
 		os.Remove(out_wasm_file)
 
-		flags, err := ldflags.Add(c.EncryptionKey())
+		flags, err := ldflags.Add(c.LdFlagsEncryptionKey())
 		if err != "" {
 			return this + err
 		}

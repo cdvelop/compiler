@@ -15,7 +15,7 @@ import (
 
 type key struct{}
 
-func (key) EncryptionKey() map[string]string {
+func (key) LdFlagsEncryptionKey() map[string]string {
 	return map[string]string{"main.key": "123"}
 }
 

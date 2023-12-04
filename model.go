@@ -3,7 +3,7 @@ package compiler
 import "github.com/cdvelop/model"
 
 type encryptionKey interface {
-	EncryptionKey() map[string]string
+	LdFlagsEncryptionKey() map[string]string
 }
 
 type Compiler struct {
