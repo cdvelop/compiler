@@ -13,8 +13,8 @@ github.com/cdvelop/objectdb v0.0.90 h1:TyNNkQP5PWUa2axL2w7xKj7UrUtpzGL0U2TA4fbRb
 github.com/cdvelop/sqlite v0.0.82 h1:J/Ir/h5rKhYtqvC2U2m2v0P6N7S04pwd5oPtRd1NU+k=
 github.com/cdvelop/testools v0.0.47 h1:raUuE2jfDg6KjSSHaGMD13UL966lZ0pB8XosOobOykg=
 github.com/cdvelop/timeserver v0.0.25 h1:gjc9FeRCv3igACV5Tp6mhQKWZ3fEMT0mfMoFkVsM+WQ=
-github.com/cdvelop/timetools v0.0.27 h1:tZP4ui7e/dQz9gN/C4KK3hxuYML96cQmUWhYKXCTckk=
-github.com/cdvelop/timetools v0.0.27/go.mod h1:4sha+JDzvI4oMfHvW6CAi2q7drjKnvv41nQBWnQnK98=
+github.com/cdvelop/timetools v0.0.28 h1:deG3CoMbItderXCsR77aQK4t7beBocLQvollpoeZ32s=
+github.com/cdvelop/timetools v0.0.28/go.mod h1:pldiqgD86bayORZC0wlEqAT8A+WxJIHvhrY899yP1e0=
 github.com/cdvelop/unixid v0.0.27 h1:Nd/k5alb849wwic03dEfXpYzVaZfiro4meQAsVbmfm8=
 github.com/cdvelop/unixid v0.0.27/go.mod h1:H2Hsmmk0AQhrQn/y/5T21Dt0/WHQ/dr2AGcaDpHYO7Y=
 github.com/fxamacker/cbor/v2 v2.5.0 h1:oHsG0V/Q6E/wqTS2O1Cozzsy69nqCiguo5Q1a1ADivE=

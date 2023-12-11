@@ -13,7 +13,7 @@ require (
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.7 // indirect
 	github.com/cdvelop/object v0.0.42 // indirect
-	github.com/cdvelop/timetools v0.0.27 // indirect
+	github.com/cdvelop/timetools v0.0.28 // indirect
 	github.com/cdvelop/unixid v0.0.27 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/test v1.0.10 // indirect
