@@ -23,12 +23,12 @@ require (
 
 require (
 	github.com/cdvelop/fileserver v0.0.34
-	github.com/cdvelop/gomod v0.0.47
+	github.com/cdvelop/gomod v0.0.48
 	github.com/cdvelop/gotools v0.0.67
 	github.com/cdvelop/input v0.0.62
 	github.com/cdvelop/ldflags v0.0.5
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.49
+	github.com/cdvelop/platform v0.0.50
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 )
 
