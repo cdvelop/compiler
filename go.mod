@@ -3,30 +3,29 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/model v0.0.78
+	github.com/cdvelop/model v0.0.79
 	github.com/cdvelop/strings v0.0.8
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.14 // indirect
+	github.com/cdvelop/filehandler v0.0.15 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.7 // indirect
-	github.com/cdvelop/object v0.0.42 // indirect
+	github.com/cdvelop/object v0.0.43 // indirect
 	github.com/cdvelop/timetools v0.0.28 // indirect
-	github.com/cdvelop/unixid v0.0.27 // indirect
+	github.com/cdvelop/unixid v0.0.28 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/test v1.0.10 // indirect
-	github.com/x448/float16 v0.8.4 // indirect
 	golang.org/x/net v0.19.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )
 
 require (
-	github.com/cdvelop/fileserver v0.0.31
-	github.com/cdvelop/gomod v0.0.46
-	github.com/cdvelop/gotools v0.0.66
-	github.com/cdvelop/input v0.0.61
+	github.com/cdvelop/fileserver v0.0.34
+	github.com/cdvelop/gomod v0.0.47
+	github.com/cdvelop/gotools v0.0.67
+	github.com/cdvelop/input v0.0.62
 	github.com/cdvelop/ldflags v0.0.5
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.49
