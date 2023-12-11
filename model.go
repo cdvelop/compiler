@@ -1,10 +1,9 @@
 package compiler
 
-import "github.com/cdvelop/model"
-
-type encryptionKey interface {
-	LdFlagsEncryptionKey() map[string]string
-}
+import (
+	"github.com/cdvelop/model"
+	"github.com/cdvelop/token"
+)
 
 type Compiler struct {
 	project_dir    string // directorio actual
@@ -12,7 +11,7 @@ type Compiler struct {
 	components_dir string // directorio paquetes
 	theme_dir      string // directorio tema default components_dir + \platform
 
-	encryptionKey
+	token.TwoPublicKeyAdapter
 
 	model.Page
 

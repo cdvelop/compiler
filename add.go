@@ -8,6 +8,7 @@ import (
 	"github.com/cdvelop/model"
 	. "github.com/cdvelop/output"
 	"github.com/cdvelop/strings"
+	"github.com/cdvelop/token"
 )
 
 // options ej:
@@ -21,7 +22,7 @@ import (
 // compile_dir:cmd default ""
 // components_dir:c:\go\pkg default HomeUserDir/Packages/go
 // theme_dir:c:\pkg\go\store default:HomeUserDir/Packages/go/platform
-func Config(key encryptionKey, options ...string) *Compiler {
+func Config(key token.TwoPublicKeyAdapter, options ...string) *Compiler {
 
 	c := Compiler{
 		Page:                  model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
@@ -31,7 +32,7 @@ func Config(key encryptionKey, options ...string) *Compiler {
 		DirectoriesRegistered: map[string]struct{}{},
 		minify:                true,
 
-		encryptionKey: key,
+		TwoPublicKeyAdapter: key,
 	}
 
 	usr, err := user.Current()
