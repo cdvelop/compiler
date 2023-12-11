@@ -27,7 +27,7 @@ require (
 	github.com/cdvelop/gomod v0.0.46
 	github.com/cdvelop/gotools v0.0.66
 	github.com/cdvelop/input v0.0.61
-	github.com/cdvelop/ldflags v0.0.3
+	github.com/cdvelop/ldflags v0.0.5
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.49
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
