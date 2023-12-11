@@ -3,14 +3,14 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/model v0.0.77
+	github.com/cdvelop/model v0.0.78
 	github.com/cdvelop/strings v0.0.8
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
 
 require (
 	github.com/cdvelop/filehandler v0.0.14 // indirect
-	github.com/cdvelop/git v0.0.1 // indirect
+	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.7 // indirect
 	github.com/cdvelop/object v0.0.42 // indirect
 	github.com/cdvelop/timetools v0.0.27 // indirect
