@@ -3,14 +3,14 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/fileserver v0.0.34
+	github.com/cdvelop/fileserver v0.0.35
 	github.com/cdvelop/gomod v0.0.48
 	github.com/cdvelop/gotools v0.0.67
 	github.com/cdvelop/input v0.0.62
 	github.com/cdvelop/ldflags v0.0.5
-	github.com/cdvelop/model v0.0.79
+	github.com/cdvelop/model v0.0.82
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.50
+	github.com/cdvelop/platform v0.0.52
 	github.com/cdvelop/strings v0.0.8
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
