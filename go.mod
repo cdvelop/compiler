@@ -4,14 +4,14 @@ go 1.20
 
 require (
 	github.com/cdvelop/fileserver v0.0.35
-	github.com/cdvelop/gomod v0.0.50
+	github.com/cdvelop/gomod v0.0.51
 	github.com/cdvelop/gotools v0.0.67
 	github.com/cdvelop/input v0.0.63
 	github.com/cdvelop/ldflags v0.0.5
 	github.com/cdvelop/model v0.0.86
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.53
-	github.com/cdvelop/strings v0.0.8
+	github.com/cdvelop/strings v0.0.9
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
