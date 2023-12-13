@@ -7,7 +7,7 @@ require (
 	github.com/cdvelop/gomod v0.0.51
 	github.com/cdvelop/gotools v0.0.67
 	github.com/cdvelop/input v0.0.63
-	github.com/cdvelop/ldflags v0.0.5
+	github.com/cdvelop/ldflags v0.0.6
 	github.com/cdvelop/model v0.0.86
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.53
@@ -19,7 +19,7 @@ require (
 require (
 	github.com/cdvelop/filehandler v0.0.18 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
-	github.com/cdvelop/maps v0.0.7 // indirect
+	github.com/cdvelop/maps v0.0.8 // indirect
 	github.com/cdvelop/object v0.0.45 // indirect
 	github.com/cdvelop/timetools v0.0.28 // indirect
 	github.com/cdvelop/unixid v0.0.28 // indirect
