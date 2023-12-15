@@ -5,12 +5,12 @@ go 1.20
 require (
 	github.com/cdvelop/fileserver v0.0.44
 	github.com/cdvelop/gomod v0.0.57
-	github.com/cdvelop/gotools v0.0.70
+	github.com/cdvelop/gotools v0.0.71
 	github.com/cdvelop/input v0.0.67
 	github.com/cdvelop/ldflags v0.0.6
-	github.com/cdvelop/model v0.0.95
+	github.com/cdvelop/model v0.0.96
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.54
+	github.com/cdvelop/platform v0.0.55
 	github.com/cdvelop/strings v0.0.9
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
