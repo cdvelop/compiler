@@ -17,7 +17,7 @@ require (
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.28 // indirect
+	github.com/cdvelop/filehandler v0.0.29 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.8 // indirect
 	github.com/cdvelop/object v0.0.62 // indirect
