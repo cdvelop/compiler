@@ -4,11 +4,11 @@ go 1.20
 
 require (
 	github.com/cdvelop/fileserver v0.0.48
-	github.com/cdvelop/gomod v0.0.63
+	github.com/cdvelop/gomod v0.0.64
 	github.com/cdvelop/gotools v0.0.77
 	github.com/cdvelop/input v0.0.75
 	github.com/cdvelop/ldflags v0.0.6
-	github.com/cdvelop/model v0.0.102
+	github.com/cdvelop/model v0.0.103
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.61
 	github.com/cdvelop/strings v0.0.9
