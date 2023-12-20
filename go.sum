@@ -27,8 +27,8 @@ github.com/cdvelop/object v0.0.66/go.mod h1:it11udTd8fLwvh+pSKn5A7kiJxV3hD6rLXKh
 github.com/cdvelop/objectdb v0.0.109 h1:CQChsbn/+dU5OjLtyZk9ctpySmY2/uPwk5pNohYY/IU=
 github.com/cdvelop/output v0.0.16 h1:4hmAy0kF98dVEWj2qq6fMtiq3pz1ZTDmxf9AgHiBb7g=
 github.com/cdvelop/output v0.0.16/go.mod h1:J0NdlSxlURjPlX82VUmaq7o9Z4omOSH0yLUoioPdELc=
-github.com/cdvelop/platform v0.0.66 h1:fDCfYHd3jSfDQtAPM78z2eIRtrZeuSY5JnR8SvO11Dc=
-github.com/cdvelop/platform v0.0.66/go.mod h1:8zEcqkDKM29iob/i/8LAXlwcZQs7dUiaV1h7e5tVzDI=
+github.com/cdvelop/platform v0.0.67 h1:trFhwrn+O21NZzo1mr1ebAEBB/fuzsfK6E3d5cl5NZY=
+github.com/cdvelop/platform v0.0.67/go.mod h1:8zEcqkDKM29iob/i/8LAXlwcZQs7dUiaV1h7e5tVzDI=
 github.com/cdvelop/sqlite v0.0.100 h1:y+OpD0CjWI8CNFj7FcQa7YKVcAAGSiagHHnDAup8J48=
 github.com/cdvelop/strings v0.0.9 h1:yDh2msl3EQja0dHw+oOHfD9ymQMa50KakKTkjsXDnvw=
 github.com/cdvelop/strings v0.0.9/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
