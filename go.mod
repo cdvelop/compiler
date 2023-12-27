@@ -3,7 +3,7 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/fileserver v0.0.53
+	github.com/cdvelop/fileserver v0.0.54
 	github.com/cdvelop/gomod v0.0.70
 	github.com/cdvelop/gotools v0.0.81
 	github.com/cdvelop/input v0.0.81
