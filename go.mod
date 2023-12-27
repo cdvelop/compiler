@@ -6,11 +6,11 @@ require (
 	github.com/cdvelop/fileserver v0.0.53
 	github.com/cdvelop/gomod v0.0.69
 	github.com/cdvelop/gotools v0.0.80
-	github.com/cdvelop/input v0.0.78
+	github.com/cdvelop/input v0.0.80
 	github.com/cdvelop/ldflags v0.0.6
-	github.com/cdvelop/model v0.0.106
+	github.com/cdvelop/model v0.0.107
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.67
+	github.com/cdvelop/platform v0.0.69
 	github.com/cdvelop/strings v0.0.9
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
