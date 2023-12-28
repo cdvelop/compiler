@@ -17,13 +17,13 @@ require (
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.36 // indirect
+	github.com/cdvelop/filehandler v0.0.37 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.8 // indirect
 	github.com/cdvelop/object v0.0.68 // indirect
 	github.com/cdvelop/structs v0.0.1 // indirect
 	github.com/cdvelop/timetools v0.0.34 // indirect
-	github.com/cdvelop/unixid v0.0.48 // indirect
+	github.com/cdvelop/unixid v0.0.49 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 	github.com/tdewolff/test v1.0.10 // indirect
