@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/cdvelop/fileserver v0.0.54
-	github.com/cdvelop/gomod v0.0.70
+	github.com/cdvelop/gomod v0.0.72
 	github.com/cdvelop/gotools v0.0.81
 	github.com/cdvelop/input v0.0.81
 	github.com/cdvelop/ldflags v0.0.6
@@ -17,12 +17,12 @@ require (
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.34 // indirect
+	github.com/cdvelop/filehandler v0.0.35 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.8 // indirect
 	github.com/cdvelop/object v0.0.67 // indirect
 	github.com/cdvelop/structs v0.0.1 // indirect
-	github.com/cdvelop/timetools v0.0.32 // indirect
+	github.com/cdvelop/timetools v0.0.33 // indirect
 	github.com/cdvelop/unixid v0.0.48 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
