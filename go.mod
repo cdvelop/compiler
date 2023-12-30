@@ -10,7 +10,7 @@ require (
 	github.com/cdvelop/ldflags v0.0.6
 	github.com/cdvelop/model v0.0.108
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.71
+	github.com/cdvelop/platform v0.0.72
 	github.com/cdvelop/strings v0.0.9
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
