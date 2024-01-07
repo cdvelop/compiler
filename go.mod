@@ -3,12 +3,12 @@ module github.com/cdvelop/compiler
 go 1.20
 
 require (
-	github.com/cdvelop/fileserver v0.0.56
+	github.com/cdvelop/fileserver v0.0.59
 	github.com/cdvelop/gomod v0.0.75
 	github.com/cdvelop/gotools v0.0.83
 	github.com/cdvelop/input v0.0.83
 	github.com/cdvelop/ldflags v0.0.6
-	github.com/cdvelop/model v0.0.109
+	github.com/cdvelop/model v0.0.111
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.75
 	github.com/cdvelop/strings v0.0.9
