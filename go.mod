@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/cdvelop/fileserver v0.0.59
-	github.com/cdvelop/gomod v0.0.75
+	github.com/cdvelop/gomod v0.0.76
 	github.com/cdvelop/gotools v0.0.83
 	github.com/cdvelop/input v0.0.83
 	github.com/cdvelop/ldflags v0.0.6
@@ -17,7 +17,7 @@ require (
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.38 // indirect
+	github.com/cdvelop/filehandler v0.0.39 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.8 // indirect
 	github.com/cdvelop/object v0.0.70 // indirect
