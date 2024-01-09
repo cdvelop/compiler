@@ -4,20 +4,20 @@ go 1.20
 
 require (
 	github.com/cdvelop/fileserver v0.0.60
-	github.com/cdvelop/gomod v0.0.80
+	github.com/cdvelop/gomod v0.0.81
 	github.com/cdvelop/gotools v0.0.83
 	github.com/cdvelop/input v0.0.83
 	github.com/cdvelop/ldflags v0.0.6
 	github.com/cdvelop/model v0.0.115
 	github.com/cdvelop/output v0.0.16
-	github.com/cdvelop/platform v0.0.76
+	github.com/cdvelop/platform v0.0.77
 	github.com/cdvelop/strings v0.0.9
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
 
 require (
-	github.com/cdvelop/filehandler v0.0.41 // indirect
+	github.com/cdvelop/filehandler v0.0.42 // indirect
 	github.com/cdvelop/git v0.0.2 // indirect
 	github.com/cdvelop/maps v0.0.8 // indirect
 	github.com/cdvelop/object v0.0.72 // indirect
