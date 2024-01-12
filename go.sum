@@ -20,8 +20,8 @@ github.com/cdvelop/ldflags v0.0.6/go.mod h1:/SiLxzIEltg89v6s5Uz89StuZqDLWD/grkIO
 github.com/cdvelop/logserver v0.0.35 h1:+6GwgZqOZEsrqqp9sAecp9KrviBFUZoYXyTMFxah4+A=
 github.com/cdvelop/maps v0.0.8 h1:7pc/iRC5mhf91TB8TaGoXkyFloH1pH1TWbLBR4kZhZY=
 github.com/cdvelop/maps v0.0.8/go.mod h1:00f/VqX/M0iiiY/BG2KxfxfFuoU5jAaNLEDGw7Tlduk=
-github.com/cdvelop/model v0.0.116 h1:UvgN2Ek/aq1oV+ovNwtNshHGeQRL2qBArZN896YjwB8=
-github.com/cdvelop/model v0.0.116/go.mod h1:cYJNxbv1WV/aDgiVPV9VXs8LrbF8+0nU+X+KfSevyzw=
+github.com/cdvelop/model v0.0.119 h1:wTUEn/25QCD4HjSUWb27x9tF/ysbv0enuCF4KY5LZJc=
+github.com/cdvelop/model v0.0.119/go.mod h1:cYJNxbv1WV/aDgiVPV9VXs8LrbF8+0nU+X+KfSevyzw=
 github.com/cdvelop/object v0.0.72 h1:QbyXkny+EqFPMZoDUSjCT0wpUfiG//g5mPHK8C/w7Hw=
 github.com/cdvelop/object v0.0.72/go.mod h1:mDJNuU3pHAV+sr4hraRppd3OLlOnt5rlfUe5czp4Ihs=
 github.com/cdvelop/objectdb v0.0.114 h1:rgaOdo5WdYZrcJbHMA2rE0P0EMIIotRR2fiiMtisE2A=

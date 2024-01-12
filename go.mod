@@ -8,7 +8,7 @@ require (
 	github.com/cdvelop/gotools v0.0.83
 	github.com/cdvelop/input v0.0.83
 	github.com/cdvelop/ldflags v0.0.6
-	github.com/cdvelop/model v0.0.116
+	github.com/cdvelop/model v0.0.119
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.78
 	github.com/cdvelop/strings v0.0.9

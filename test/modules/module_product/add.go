@@ -47,6 +47,6 @@ func (m module) Icon(test_dir string) string {
 	return filepath.Join(test_dir, "modules", m.ModuleName, m.IconID+".svg")
 }
 
-func (module) UserInterface(opt ...string) string {
+func (module) UserInterface(*model.User) string {
 	return "<h1>Modulo Productos</h1>"
 }

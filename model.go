@@ -2,16 +2,14 @@ package compiler
 
 import (
 	"github.com/cdvelop/model"
-	"github.com/cdvelop/token"
 )
 
 type Compiler struct {
+	*Config
 	project_dir    string // directorio actual
 	modules_dir    string // directorio módulos
 	components_dir string // directorio paquetes
 	theme_dir      string // directorio tema default components_dir + \platform
-
-	token.TwoPublicKeyAdapter
 
 	model.Page
 
@@ -42,8 +40,20 @@ type Compiler struct {
 	STATIC_FOLDER string
 
 	DirectoriesRegistered map[string]struct{}
+}
 
-	log bool
+type Config struct {
+	AppInfo
+	TwoPublicKeyAdapter
+}
+
+type AppInfo interface {
+	AppName() string
+	AppVersion() string
+}
+
+type TwoPublicKeyAdapter interface {
+	GetTwoPublicKeysWasmClientAndGoServer() map[string]string
 }
 
 type module struct {

@@ -14,7 +14,19 @@ import (
 	"github.com/cdvelop/token"
 )
 
+type App struct{}
+
+func (App) AppName() string {
+	return "app"
+}
+
+func (App) AppVersion() string {
+	return "v0.0.1"
+}
+
 func Test_CompileProject(t *testing.T) {
+	app := &App{}
+
 	dir, _ := os.Getwd()
 	test_dir := filepath.Join(dir, "test")
 
@@ -24,8 +36,11 @@ func Test_CompileProject(t *testing.T) {
 		for _, arg := range []string{"", "test:"} { // sin test: argumentos y con argumentos
 			// var arg string
 
-			c := compiler.Config(
-				&token.TwoKeys{},
+			c := compiler.Add(
+				&compiler.Config{
+					AppInfo:             app,
+					TwoPublicKeyAdapter: &token.TwoKeys{},
+				},
 				"project_dir:"+filepath.Join(test_dir, "project"),
 				"modules_dir:"+filepath.Join(test_dir, "modules"),
 				"components_dir:"+filepath.Join(test_dir, "components"),

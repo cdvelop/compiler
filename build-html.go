@@ -76,6 +76,11 @@ func (c *Compiler) makeHtmlTemplate() (html bytes.Buffer, err string) {
 		c.Page.JsonBootActions = `{{.JsonBootActions}}`
 	}
 
+	c.Page.AppName = c.Config.AppName()
+	c.Page.AppVersion = c.Config.AppVersion()
+	c.Page.StyleSheet = "static/style.css" + c.versionStatics()
+	c.Page.Script = "static/main.js" + c.versionStatics()
+
 	er = t.Execute(&html, c.Page)
 	if er != nil {
 		err = this + er.Error()

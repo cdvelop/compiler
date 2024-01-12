@@ -35,7 +35,7 @@ func (c *Compiler) webAssemblyCheck() {
 
 		c.js_wasm_import = `const go = new Go();
 		` + remove_message + `
-		WebAssembly.instantiateStreaming(fetch("static/app` + c.test_suffix + `.wasm"), go.importObject).then((result) => {
+		WebAssembly.instantiateStreaming(fetch("static/app` + c.test_suffix + `.wasm` + c.versionStatics() + `"), go.importObject).then((result) => {
 			go.run(result.instance);
 		});`
 

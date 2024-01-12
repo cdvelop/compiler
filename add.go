@@ -8,7 +8,6 @@ import (
 	"github.com/cdvelop/model"
 	. "github.com/cdvelop/output"
 	"github.com/cdvelop/strings"
-	"github.com/cdvelop/token"
 )
 
 // options ej:
@@ -22,17 +21,16 @@ import (
 // compile_dir:cmd default ""
 // components_dir:c:\go\pkg default HomeUserDir/Packages/go
 // theme_dir:c:\pkg\go\store default:HomeUserDir/Packages/go/platform
-func Config(key token.TwoPublicKeyAdapter, options ...string) *Compiler {
+func Add(conf *Config, options ...string) *Compiler {
 
 	c := Compiler{
+		Config:                conf,
 		Page:                  model.Page{StyleSheet: "static/style.css", AppName: "apptest", AppVersion: "v0.0.0", UserName: "", UserArea: "", Message: "", Script: "static/main.js"},
 		modules:               []*module{},
 		components:            map[string]*component{},
 		svg_icons:             map[string]struct{}{},
 		DirectoriesRegistered: map[string]struct{}{},
 		minify:                true,
-
-		TwoPublicKeyAdapter: key,
 	}
 
 	usr, err := user.Current()
