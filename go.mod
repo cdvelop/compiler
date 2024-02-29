@@ -7,11 +7,11 @@ require (
 	github.com/cdvelop/gomod v0.0.87
 	github.com/cdvelop/gotools v0.0.89
 	github.com/cdvelop/input v0.0.89
-	github.com/cdvelop/ldflags v0.0.6
+	github.com/cdvelop/ldflags v0.0.7
 	github.com/cdvelop/model v0.0.124
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.79
-	github.com/cdvelop/strings v0.0.11
+	github.com/cdvelop/strings v0.0.12
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
 )

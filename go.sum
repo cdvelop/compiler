@@ -15,8 +15,8 @@ github.com/cdvelop/gotools v0.0.89 h1:N+50Gzf8SAwlX6hcm6NjRMHWvvbfSoZ4zViIZrWx0B
 github.com/cdvelop/gotools v0.0.89/go.mod h1:bZJYDF+9LNrhdoqAXUNOC3rohV2Tf8IxYBPLsMf+0kI=
 github.com/cdvelop/input v0.0.89 h1:QXOLeIhRZx8qHtJXIfxJHg1d9zFhiuMzJOThxJGdfns=
 github.com/cdvelop/input v0.0.89/go.mod h1:DtH6pj7YPIs7lyk0wohEJgMiUA3XeaXotKK2y9E+fsQ=
-github.com/cdvelop/ldflags v0.0.6 h1:p/cTz8Gl5gdW6N6MXjwwQ8YXxtUc11pAhV28Q8TO8lI=
-github.com/cdvelop/ldflags v0.0.6/go.mod h1:/SiLxzIEltg89v6s5Uz89StuZqDLWD/grkIOVaCjiAw=
+github.com/cdvelop/ldflags v0.0.7 h1:LtnXE7TeN64qeVI7YDT2aAAtggbxLecHlCnAnSCHeFM=
+github.com/cdvelop/ldflags v0.0.7/go.mod h1:/oMF7eZoh7kO34SdooNQkbWNbq0Q3bkrZk5FCQsQvWc=
 github.com/cdvelop/logserver v0.0.35 h1:+6GwgZqOZEsrqqp9sAecp9KrviBFUZoYXyTMFxah4+A=
 github.com/cdvelop/maps v0.0.9 h1:nIoRv0B+0nWeEwfC3HIM+4PxyJaNc9mo7YVvBvkPaJo=
 github.com/cdvelop/maps v0.0.9/go.mod h1:FLZNHcm81euIzHXq3AlkYaI8LwF28ChGwYF6eObZrWs=
@@ -30,8 +30,8 @@ github.com/cdvelop/output v0.0.16/go.mod h1:J0NdlSxlURjPlX82VUmaq7o9Z4omOSH0yLUo
 github.com/cdvelop/platform v0.0.79 h1:sgDJ0txPIwy+eRg9pr6NmYhBGqpopfb77LrXkrMyWvA=
 github.com/cdvelop/platform v0.0.79/go.mod h1:cT6Pppv2lvDIgbDAaZxQn/NbRvMtxzcOfRQUuD6hVxM=
 github.com/cdvelop/sqlite v0.0.105 h1:XnO5tOrlZO5i9lYz3bMGVOUiTXW8cJcwUdhr8frS0ss=
-github.com/cdvelop/strings v0.0.11 h1:8sEIyEU6yHSZf5T16li1Nej/zIjtCQbjWkHzLFgK3rQ=
-github.com/cdvelop/strings v0.0.11/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
+github.com/cdvelop/strings v0.0.12 h1:UUu2Dz5RNUalRECQ6Q3TxRpgSgh3p8JUcgb94f3X5mI=
+github.com/cdvelop/strings v0.0.12/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
 github.com/cdvelop/structs v0.0.1 h1:9H4JUJ/dK1zaUOpIgay4xZpP3O/Jh991nErccKknKZ8=
 github.com/cdvelop/structs v0.0.1/go.mod h1:dvym7DUgaMRqhdcDTgCQNkbuhr+HqfwdaDMeZTmIWEI=
 github.com/cdvelop/testools v0.0.82 h1:OOmzCpf+1W+7lx+R+HdfJY8jXyLpwMUEui0xlBLZcXU=
