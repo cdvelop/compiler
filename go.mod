@@ -11,7 +11,7 @@ require (
 	github.com/cdvelop/model v0.0.124
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.79
-	github.com/cdvelop/strings v0.0.9
+	github.com/cdvelop/strings v0.0.11
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
 )
@@ -26,6 +26,6 @@ require (
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 	github.com/tdewolff/test v1.0.10 // indirect
-	golang.org/x/net v0.20.0 // indirect
+	golang.org/x/net v0.21.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )

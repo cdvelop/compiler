@@ -30,8 +30,8 @@ github.com/cdvelop/output v0.0.16/go.mod h1:J0NdlSxlURjPlX82VUmaq7o9Z4omOSH0yLUo
 github.com/cdvelop/platform v0.0.79 h1:sgDJ0txPIwy+eRg9pr6NmYhBGqpopfb77LrXkrMyWvA=
 github.com/cdvelop/platform v0.0.79/go.mod h1:cT6Pppv2lvDIgbDAaZxQn/NbRvMtxzcOfRQUuD6hVxM=
 github.com/cdvelop/sqlite v0.0.105 h1:XnO5tOrlZO5i9lYz3bMGVOUiTXW8cJcwUdhr8frS0ss=
-github.com/cdvelop/strings v0.0.9 h1:yDh2msl3EQja0dHw+oOHfD9ymQMa50KakKTkjsXDnvw=
-github.com/cdvelop/strings v0.0.9/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
+github.com/cdvelop/strings v0.0.11 h1:8sEIyEU6yHSZf5T16li1Nej/zIjtCQbjWkHzLFgK3rQ=
+github.com/cdvelop/strings v0.0.11/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
 github.com/cdvelop/structs v0.0.1 h1:9H4JUJ/dK1zaUOpIgay4xZpP3O/Jh991nErccKknKZ8=
 github.com/cdvelop/structs v0.0.1/go.mod h1:dvym7DUgaMRqhdcDTgCQNkbuhr+HqfwdaDMeZTmIWEI=
 github.com/cdvelop/testools v0.0.82 h1:OOmzCpf+1W+7lx+R+HdfJY8jXyLpwMUEui0xlBLZcXU=
@@ -50,7 +50,7 @@ github.com/tdewolff/parse v2.3.4+incompatible h1:x05/cnGwIMf4ceLuDMBOdQ1qGniMoxp
 github.com/tdewolff/parse v2.3.4+incompatible/go.mod h1:8oBwCsVmUkgHO8M5iCzSIDtpzXOT0WXX9cWhz+bIzJQ=
 github.com/tdewolff/test v1.0.10 h1:uWiheaLgLcNFqHcdWveum7PQfMnIUTf9Kl3bFxrIoew=
 github.com/tdewolff/test v1.0.10/go.mod h1:6DAvZliBAAnD7rhVgwaM7DE5/d9NMOAJ09SqYqeK4QE=
-golang.org/x/net v0.20.0 h1:aCL9BSgETF1k+blQaYUBx9hJ9LOGP3gAVemcZlf1Kpo=
-golang.org/x/net v0.20.0/go.mod h1:z8BVo6PvndSri0LbOE3hAn0apkU+1YvI6E70E9jsnvY=
+golang.org/x/net v0.21.0 h1:AQyQV4dYCvJ7vGmJyKki9+PBdyvhkSd8EIx/qb0AYv4=
+golang.org/x/net v0.21.0/go.mod h1:bIjVDfnllIU7BJ2DNgfnXvpSvtn8VRwhlsaeUTyUS44=
 golang.org/x/text v0.14.0 h1:ScX5w1eTa3QqT8oi6+ziP7dTV1S2+ALU0bI+0zXKWiQ=
 golang.org/x/text v0.14.0/go.mod h1:18ZOQIKpY8NJVqYksKHtTdi31H5itFRjB5/qKTNYzSU=
