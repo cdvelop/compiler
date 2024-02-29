@@ -11,7 +11,7 @@ require (
 	github.com/cdvelop/model v0.0.124
 	github.com/cdvelop/output v0.0.16
 	github.com/cdvelop/platform v0.0.79
-	github.com/cdvelop/strings v0.0.12
+	github.com/cdvelop/strings v0.0.13
 	github.com/cdvelop/token v0.0.5
 	github.com/tdewolff/minify v2.3.6+incompatible
 )

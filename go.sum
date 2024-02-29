@@ -30,8 +30,8 @@ github.com/cdvelop/output v0.0.16/go.mod h1:J0NdlSxlURjPlX82VUmaq7o9Z4omOSH0yLUo
 github.com/cdvelop/platform v0.0.79 h1:sgDJ0txPIwy+eRg9pr6NmYhBGqpopfb77LrXkrMyWvA=
 github.com/cdvelop/platform v0.0.79/go.mod h1:cT6Pppv2lvDIgbDAaZxQn/NbRvMtxzcOfRQUuD6hVxM=
 github.com/cdvelop/sqlite v0.0.105 h1:XnO5tOrlZO5i9lYz3bMGVOUiTXW8cJcwUdhr8frS0ss=
-github.com/cdvelop/strings v0.0.12 h1:UUu2Dz5RNUalRECQ6Q3TxRpgSgh3p8JUcgb94f3X5mI=
-github.com/cdvelop/strings v0.0.12/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
+github.com/cdvelop/strings v0.0.13 h1:8dZLBs023B3LoEA5Uu9VqkTJUe7PfHHUdlpGlR63Zyg=
+github.com/cdvelop/strings v0.0.13/go.mod h1:zNexDeXHRETbMmlmNThQeM7ksRsvzrphsCfwuSxaURk=
 github.com/cdvelop/structs v0.0.1 h1:9H4JUJ/dK1zaUOpIgay4xZpP3O/Jh991nErccKknKZ8=
 github.com/cdvelop/structs v0.0.1/go.mod h1:dvym7DUgaMRqhdcDTgCQNkbuhr+HqfwdaDMeZTmIWEI=
 github.com/cdvelop/testools v0.0.82 h1:OOmzCpf+1W+7lx+R+HdfJY8jXyLpwMUEui0xlBLZcXU=
