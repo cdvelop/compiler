@@ -46,7 +46,7 @@ func (c Compiler) BuildWASM(event_name string) (err string) {
 		// Ajustamos los parámetros de compilación según la configuración
 		if c.with_tinyGo {
 			// fmt.Println("*** COMPILACIÓN WASM TINYGO ***")
-			cmd = exec.Command("tinygo", "build", "-o", out_wasm_file, "-target", "wasm", "-ldflags", flags, input_go_file)
+			cmd = exec.Command("tinygo", "build", "-o", out_wasm_file, "-target", "wasm", "--no-debug", "-ldflags", flags, input_go_file)
 
 		} else {
 			// compilación normal...

@@ -22,10 +22,10 @@ require (
 	github.com/cdvelop/maps v0.0.9 // indirect
 	github.com/cdvelop/object v0.0.77 // indirect
 	github.com/cdvelop/structs v0.0.1 // indirect
-	github.com/cdvelop/unixid v0.0.53 // indirect
+	github.com/cdvelop/unixid v0.0.54 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
 	github.com/tdewolff/parse v2.3.4+incompatible // indirect
 	github.com/tdewolff/test v1.0.10 // indirect
-	golang.org/x/net v0.21.0 // indirect
+	golang.org/x/net v0.22.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )
